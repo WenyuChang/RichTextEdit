@@ -1,0 +1,67 @@
+﻿<ScrollViewer Width="100" Height="100"
+                xmlns="http://schemas.microsoft.com/client/2007"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer.Template>
+        <ControlTemplate TargetType="ScrollViewer">
+            <!--<Border CornerRadius="1" BorderBrush="#FFA4A4A4" BorderThickness="1">-->
+            <Grid Background="{TemplateBinding Background}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Rectangle Grid.Column="1" Grid.Row="1" Fill="#FFE9E9E9" />
+                <!-- Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" -->
+                <ScrollContentPresenter
+        x:Name="ScrollContentPresenterElement"
+        Grid.Column="0"
+        Grid.Row="0"
+        Content="{TemplateBinding Content}"
+        ContentTemplate="{TemplateBinding ContentTemplate}"
+        Cursor="{TemplateBinding Cursor}"
+        Background="{TemplateBinding Background}"
+        FontFamily="{TemplateBinding FontFamily}"
+        FontSize="{TemplateBinding FontSize}"
+        FontStretch="{TemplateBinding FontStretch}"
+        FontStyle="{TemplateBinding FontStyle}"
+        FontWeight="{TemplateBinding FontWeight}"
+        Foreground="{TemplateBinding Foreground}"
+        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+        TextAlignment="{TemplateBinding TextAlignment}"
+        TextDecorations="{TemplateBinding TextDecorations}"
+        TextWrapping="{TemplateBinding TextWrapping}"
+        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+        Margin="{TemplateBinding Padding}" />
+                <ScrollBar
+        x:Name="VerticalScrollBarElement"
+        Grid.Column="1"
+        Grid.Row="0"
+        Orientation="Vertical"
+        Cursor="Arrow"
+        Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+        ViewportSize="{TemplateBinding ViewportHeight}"
+        Minimum="0"
+        Maximum="{TemplateBinding ScrollableHeight}"
+        Value="{TemplateBinding VerticalOffset}"
+        Width="18"/>
+                <ScrollBar
+        x:Name="HorizontalScrollBarElement"
+        Grid.Column="0"
+        Grid.Row="1"
+        Orientation="Horizontal"
+        Cursor="Arrow"
+        Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+        ViewportSize="{TemplateBinding ViewportWidth}"
+        Minimum="0"
+        Maximum="{TemplateBinding ScrollableWidth}"
+        Value="{TemplateBinding HorizontalOffset}"
+        Height="18"/>
+            </Grid>
+            <!--</Border>-->
+        </ControlTemplate>
+    </ScrollViewer.Template>
+    <TextBlock Text="Hello"/>
+  </ScrollViewer>

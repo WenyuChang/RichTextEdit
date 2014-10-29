@@ -1,0 +1,23 @@
+C:\Projekte\RichText\RichTextEdit\obj\Debug\ResolveAssemblyReference.cache
+C:\Projekte\RichText\RichTextEdit\ClientBin\RichTextEdit.dll
+C:\Projekte\RichText\RichTextEdit\ClientBin\RichTextEdit.pdb
+C:\Projekte\RichText\RichTextEdit\ClientBin\System.Windows.Controls.dll
+C:\Projekte\RichText\RichTextEdit\ClientBin\System.Windows.Controls.xml
+C:\Projekte\RichText\RichTextEdit\ClientBin\ja\System.Windows.Controls.resources.dll
+C:\Projekte\RichText\RichTextEdit\obj\Debug\RichTextEdit.dll
+C:\Projekte\RichText\RichTextEdit\obj\Debug\RichTextEdit.pdb
+C:\Projekte\RichTextEdit 1.2\RichTextEdit\obj\Debug\ResolveAssemblyReference.cache
+C:\Projekte\RichTextEdit 1.2\RichTextEdit\obj\Debug\RichTextEdit.dll
+C:\Projekte\RichTextEdit 1.2\RichTextEdit\obj\Debug\RichTextEdit.pdb
+C:\Projekte\RichTextEdit 1.2\RichTextEdit\ClientBin\RichTextEdit.dll
+C:\Projekte\RichTextEdit 1.2\RichTextEdit\ClientBin\RichTextEdit.pdb
+E:\DownloadTemp\RichTextEdit 2.0\RichTextEdit\ClientBin\RichTextEdit.dll
+E:\DownloadTemp\RichTextEdit 2.0\RichTextEdit\ClientBin\RichTextEdit.pdb
+E:\DownloadTemp\RichTextEdit 2.0\RichTextEdit\obj\Debug\ResolveAssemblyReference.cache
+E:\DownloadTemp\RichTextEdit 2.0\RichTextEdit\obj\Debug\RichTextEdit.dll
+E:\DownloadTemp\RichTextEdit 2.0\RichTextEdit\obj\Debug\RichTextEdit.pdb
+C:\Users\changwy\Documents\Visual Studio 2008\Projects\RichTextEdit 2.0\RichTextEdit\ClientBin\RichTextEdit.dll
+C:\Users\changwy\Documents\Visual Studio 2008\Projects\RichTextEdit 2.0\RichTextEdit\ClientBin\RichTextEdit.pdb
+C:\Users\changwy\Documents\Visual Studio 2008\Projects\RichTextEdit 2.0\RichTextEdit\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\changwy\Documents\Visual Studio 2008\Projects\RichTextEdit 2.0\RichTextEdit\obj\Debug\RichTextEdit.dll
+C:\Users\changwy\Documents\Visual Studio 2008\Projects\RichTextEdit 2.0\RichTextEdit\obj\Debug\RichTextEdit.pdb

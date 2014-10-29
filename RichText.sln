@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichText", "RichText.csproj", "{3315E272-56B3-4371-A9D2-6D277C8FFDAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichTextEdit", "RichTextEdit\RichTextEdit.csproj", "{84759C6F-60FF-4B1A-B88A-086C978FBBCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3315E272-56B3-4371-A9D2-6D277C8FFDAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3315E272-56B3-4371-A9D2-6D277C8FFDAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3315E272-56B3-4371-A9D2-6D277C8FFDAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3315E272-56B3-4371-A9D2-6D277C8FFDAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84759C6F-60FF-4B1A-B88A-086C978FBBCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84759C6F-60FF-4B1A-B88A-086C978FBBCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84759C6F-60FF-4B1A-B88A-086C978FBBCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84759C6F-60FF-4B1A-B88A-086C978FBBCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="RichText.Page"
+    xmlns="http://schemas.microsoft.com/client/2007" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="840" Height="700" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+    xmlns:RTE="clr-namespace:System.Windows.Controls;assembly=RichTextEdit">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <ListBox SelectionChanged="LIST_Weight_SelectionChanged" Height="160" Margin="0,0,172,145" VerticalAlignment="Bottom" HorizontalAlignment="Right" x:Name="LIST_Weight" Width="162"/>
+    	<ListBox SelectionChanged="LIST_Align_SelectionChanged" Height="119" Margin="340,0,338,145" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" x:Name="LIST_Align"/>
+    	<ListBox SelectionChanged="LIST_Border_SelectionChanged" Height="119" Margin="174,0,0,145" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="162" x:Name="LIST_Border"/>
+    	<ListBox SelectionChanged="LIST_Size_SelectionChanged" Margin="0,195.514999389648,6,309" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="162" x:Name="LIST_Size"/>
+    	<ListBox SelectionChanged="List_Family_SelectionChanged" HorizontalAlignment="Right" Margin="0,46,6,0" VerticalAlignment="Top" Width="162" x:Name="List_Family" Height="145.515" d:LayoutOverrides="Height"/>
+    	<ListBox SelectionChanged="LIST_Stretch_SelectionChanged" Height="160" Margin="0,0,6,145" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="162" x:Name="LIST_Stretch"/>
+    	<ListBox SelectionChanged="LIST_Color_SelectionChanged" HorizontalAlignment="Right" Margin="0,195.514999389648,172,309" VerticalAlignment="Stretch" x:Name="LIST_Color" Width="162"/>
+    	<RadioButton Click="RBN_ColorSelection_Click" HorizontalAlignment="Right" Margin="0,75.9029998779297,195.891998291016,0" VerticalAlignment="Top" Content="Selection background" IsChecked="False" x:Name="RBN_SelBack"/>
+    	<RadioButton Click="RBN_ColorSelection_Click" HorizontalAlignment="Right" Margin="0,46,199.522994995117,0" VerticalAlignment="Top" Content="Selection foreground" IsChecked="False" x:Name="RBN_SelFore"/>
+    	<RadioButton Click="RBN_ColorSelection_Click" HorizontalAlignment="Right" Margin="0,105.805999755859,223.45100402832,0" VerticalAlignment="Top" Content="Text foreground" IsChecked="True" x:Name="RBN_TextFore"/>
+    	<RadioButton Click="RBN_ColorSelection_Click" HorizontalAlignment="Right" Margin="0,165.611999511719,244.886993408203,0" VerticalAlignment="Top" Content="Cursor color" IsChecked="False" x:Name="RBN_CurFore"/>
+    	<RadioButton Click="RBN_ColorSelection_Click" HorizontalAlignment="Right" Margin="0,135.708999633789,219.820007324219,0" VerticalAlignment="Top" Content="Text background" IsChecked="False" x:Name="RBN_TextBack"/>
+    	<ScrollViewer HorizontalAlignment="Stretch" Margin="8,0,6,8" VerticalAlignment="Bottom" Height="133" HorizontalScrollBarVisibility="Disabled">
+    		<TextBlock Height="Auto" Width="Auto" TextWrapping="Wrap" x:Name="LABEL_Binary">
+    			<Run Text="Binary serialization as base64" FontFamily="Portable User Interface" FontSize="14.666666984558106" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Foreground="#FF000000"/>
+    		</TextBlock>
+    	</ScrollViewer>
+    	<Button IsEnabled="False" Click="BTN_Replace_Click" Height="34" HorizontalAlignment="Stretch" Margin="413,8,338,0" VerticalAlignment="Top" Content="Replace" x:Name="BTN_Replace"/>
+    	<Button Click="BTN_Deserialize_Click" Height="34" HorizontalAlignment="Right" Margin="0,8,6,0" VerticalAlignment="Top" Content="Deserialize" Width="75" x:Name="BTN_Deserialize" IsEnabled="False"/>
+    	<Button Click="BTN_Close_Click" Height="34" HorizontalAlignment="Left" Margin="170,46,0,0" VerticalAlignment="Top" Content="Close Item/Indent" x:Name="BTN_Close" Width="107"/>
+    	<Button Click="BTN_Serialize_Click" Height="34" HorizontalAlignment="Right" Margin="0,8,85,0" VerticalAlignment="Top" Content="Serialize" Width="110.523" x:Name="BTN_Serialize" d:LayoutOverrides="Width"/>
+    	<TextBox Height="34" HorizontalAlignment="Left" Margin="8,8,0,0" VerticalAlignment="Top" Width="164" Text="" x:Name="EDIT_Find"/>
+    	<Button IsEnabled="False" Click="BTN_FindNext_Click" Height="34" HorizontalAlignment="Right" Margin="0,8,199.522994995117,0" VerticalAlignment="Top" Content="Find Next" x:Name="BTN_FindNext" Width="134.477" d:LayoutOverrides="Width"/>
+    	<Button Click="BTN_Item_Click" Height="34" HorizontalAlignment="Left" Margin="8,46,0,0" VerticalAlignment="Top" Content="Insert Item" x:Name="BTN_Item" Width="73"/>
+    	<Button Click="BTN_Enter_Click" Height="34" HorizontalAlignment="Left" Margin="281,46,0,0" VerticalAlignment="Top" Content="ENTER" x:Name="BTN_Enter" Width="55"/>
+    	<Button Click="BTN_Indent_Click" Height="34" HorizontalAlignment="Left" Margin="85,46,0,0" VerticalAlignment="Top" Content="Insert Indent" x:Name="BTN_Indent" Width="81"/>
+    	<CheckBox Click="CHK_Attributes_Click" HorizontalAlignment="Left" Margin="8,0,0,202.194000244141" VerticalAlignment="Bottom" Content="Sup" x:Name="CHK_Sup"/>
+    	<CheckBox Click="CHK_Attributes_Click" HorizontalAlignment="Left" Margin="8,0,0,228.59700012207" VerticalAlignment="Bottom" Content="Sub" x:Name="CHK_Sub"/>
+    	<CheckBox Click="CHK_Italic_Click" HorizontalAlignment="Left" Margin="8,0,0,149.388000488281" VerticalAlignment="Bottom" Content="Italic" x:Name="CHK_Italic"/>
+    	<CheckBox Click="CHK_Attributes_Click" HorizontalAlignment="Left" Margin="8,0,0,175.791000366211" VerticalAlignment="Bottom" Content="Underlined" x:Name="CHK_Underlined"/>
+    	<Button Click="BTN_Find_Click" Height="34" HorizontalAlignment="Left" Margin="176,8,0,0" VerticalAlignment="Top" Content="Find" x:Name="BTN_Find" Width="69"/>
+    	<Button Click="BTN_Paste_Click" Height="34" Margin="413,46,338,0" VerticalAlignment="Top" Content="Paste" RenderTransformOrigin="0.490000009536743,0.492000013589859" HorizontalAlignment="Stretch" x:Name="BTN_Paste"/>
+    	<Button Click="BTN_Insert_TextBox_Click" HorizontalAlignment="Left" Margin="176,0,0,271" VerticalAlignment="Bottom" Width="101" RenderTransformOrigin="0.490000009536743,0.492000013589859" Content="Insert TextBox" x:Name="BTN_Insert_TextBox" Height="34"/>
+    	<Button Click="BTN_Copy_Click" Height="34" HorizontalAlignment="Left" Margin="340,46,0,0" VerticalAlignment="Top" Width="69" RenderTransformOrigin="0.490000009536743,0.492000013589859" Content="Copy" x:Name="BTN_Copy"/>
+    	<Button Click="BTN_Insert_Button_Click" HorizontalAlignment="Left" Margin="8,0,0,271" VerticalAlignment="Bottom" Width="92" RenderTransformOrigin="0.490000009536743,0.492000013589859" Content="Insert Button" x:Name="BTN_Insert_Button" Height="34"/>
+    	<Button Click="BTN_Insert_CheckBox_Click" HorizontalAlignment="Left" Margin="281,0,0,271" VerticalAlignment="Bottom" RenderTransformOrigin="0.490000009536743,0.492000013589859" Content="Insert CheckBox" Height="34" x:Name="BTN_Insert_CheckBox" Width="101"/>
+    	<Button Click="BTN_Insert_Link_Click" HorizontalAlignment="Left" Margin="104,0,0,271" VerticalAlignment="Bottom" Width="68" RenderTransformOrigin="0.490000009536743,0.492000013589859" Content="Insert Link" Height="34" x:Name="BTN_Insert_Link"/>
+    	<TextBox Height="34" HorizontalAlignment="Left" Margin="249,8,0,0" VerticalAlignment="Top" Width="160" Text="" x:Name="EDIT_Replace"/>
+    	<CheckBox Click="CHK_ReadOnly_Click" Height="26.403" HorizontalAlignment="Left" Margin="85,0,0,228.59700012207" VerticalAlignment="Bottom" Width="81" Content="ReadOnly" d:LayoutOverrides="Height" x:Name="CHK_ReadOnly"/>
+    	<Button Click="BTN_Insert_RTO_Click" Height="34" HorizontalAlignment="Stretch" Margin="386,0,338,271" VerticalAlignment="Bottom" Content="Insert RTO" x:Name="BTN_Insert_RTO"/>
+    	<RTE:RichTextEdit Margin="8,84,338,309" x:Name="RichEdit"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,902 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>System.Windows.Controls</name>
+    </assembly>
+    <members>
+        <member name="T:System.Windows.Controls.RichTextEdit">
+            <summary>
+            Utilizes Silverlight's TextBlock to provide a rich text editor experience.
+            It supports various features and any common font formatting. It is designed to
+            be extended with things like syntax highlighting, emoticons, in-text buttons/checkboxes
+            or any other focusable stuff. It solves the main issues with rich text editing, like
+            block alignment, scrollability, mouse and keyboard selection, clipboard operations,
+            support for custom objects like images or formular elements, secure content serialization, 
+            ToolBar support, and many more.
+            </summary>
+            <remarks><para>
+            Since Silverlight does not support any amazing way to input formatted text, I just
+            decided to write my own one. Currently this component is still in its Beta state, and
+            I encourage everyone involved in Silverlight things, to test it against this specification
+            or/and send me any comments or improvements!
+            </para><para>
+            The following is an incomplete feature list:
+            <list type="bullet">
+            <item><description>
+            Copy/Paste formatted text between RichTextBoxes and copy/paste from/to clipboard of unformatted 
+            but macro-enabled text. This means in windows clipboard even things like emoticons will be kept.
+            </description></item>
+            <item><description>
+            You may insert line breaks, unordered lists and blockquotes.
+            </description></item>
+            <item><description>
+            You may use various keyboard selection features like "End/Home/PageUp/PageDown/Left/Up/Right/Down", 
+            "Ctrl"+"A/End/Home", "Ctrl+Shift"+"End/Home/Left/Right", "Shift"+"End/Home/PageUp/PageDown/Left/Up/Right/Down"
+            and so forth...
+            </description></item>
+            <item><description>
+            Supports direct unicode character input using "Ctrl"+[NumPad].
+            </description></item>
+            <item><description>
+            All silverlight font formatting is supported and even some more like SUP/SUB formatting.
+            </description></item>
+            <item><description>
+            You may define macros and a proper object class that should replace matching text, like emoticons...
+            </description></item>
+            <item><description>
+            In contrast to many other rich text editors, this one is fullly real-time. That means no preview
+            is required because the editor allows editing all things directly.
+            </description></item>
+            <item><description>
+            If you only use macros and <see cref="T:System.Windows.Controls.IRichTextObject"/> to extend the control, you will automatically
+            get support for secure content serialization of all control elements. Content serialization also supports
+            to reload content and edit it again. 
+            </description></item>
+            <item><description>
+            Secure content serialization gets rid of any potential security leak when storing user typed formatted text on
+            a server and presenting it to visitors, because it is fully validatable. 
+            </description></item>
+            <item><description>
+            You may restrict font formatting to a well defined custom subset. This allows you to ensure that all user 
+            typed input matches your needs or website design.
+            </description></item>
+            <item><description>
+            Snapshots allow convenient access to formatted content and also Find&amp;Replace with regular expressions for example...
+            </description></item>
+            </list>
+            </para>
+            </remarks>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.QuerySelectionText">
+            <summary>
+            Queries a snapshot for current content selection. For more information
+            about snapshots refer to <see cref="T:System.Windows.Controls.RichTextEdit.Snapshot"/>.
+            </summary>
+            <returns>An instance of <see cref="T:System.Windows.Controls.RichTextEdit.Snapshot"/> representing current selection.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.QueryText">
+            <summary>
+            Queries a snapshot for current content. For more information
+            about snapshots refer to <see cref="T:System.Windows.Controls.RichTextEdit.Snapshot"/>.
+            </summary>
+            <returns>An instance of <see cref="T:System.Windows.Controls.RichTextEdit.Snapshot"/> representing the editor's content.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.RegisterObject(System.Windows.Controls.IRichTextObject)">
+            <summary>
+            Registers an object class interface (OCI) to be used with this editor.
+            Only registered OCIs may be used with <see cref="M:System.Windows.Controls.RichTextEdit.InsertObject(System.Windows.Controls.IRichTextObject)"/>.
+            </summary>
+            <param name="InType">A custom OCI.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.UnRegisterObject(System.Windows.Controls.IRichTextObject)">
+            <summary>
+            Unregisters an object class interface (OCI). In general this method is not necessary. 
+            </summary>
+            <param name="InType"></param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.InsertDeserialization(System.Boolean,System.IO.Stream)">
+            <summary>
+            Inserts the given binary serialization at cursor position.
+            </summary>
+            <param name="InIgnoreWarnings">Set to true if you want to ignore unsupported font settings or rich text objects.</param>
+            <param name="InStream">A readable, seekable stream to read binary data from.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.AddMacro(System.String,System.Windows.Controls.IRichTextObject)">
+            <summary>
+            <para>
+            Adds a new macro to the internal macro list. A macro is one of two ways to customize this control.
+            Everytime the given <paramref name="InMacro"/> maps to a substring of the control content, the
+            related letters are replaced by a newly created instance of <paramref name="InReplacement"/>. This
+            instance is obtained via <see cref="M:System.Windows.Controls.IRichTextObject.CreateInstance"/>.
+            </para>
+            <para>
+            Macros deliver the great advantage, to be kept among clipboard operations. That means if the user copies
+            a selection into the clipboard and this selection contains at least one macro, this macro is translated
+            back into its string representation. If the user later copies this clipboard text back into any component
+            that is aware of the macro, it will be automatically translated into its custom object representation.
+            </para>
+            </summary>
+            <remarks>
+            <para>
+            Keep in mind that a macro operates on chronologically ordered
+            input only. That means if someone is typing a macro from right-to-left or a
+            macro "would be assembled" in conjunction with text that has been typed earlier,
+            no replacement would be made. For example:
+            </para><para> 
+            Let's say you've applied the predefined macro collection <see cref="T:System.Windows.Controls.MSNEmoticons"/>.
+            If someone types ":" in front of "-)", it wouldn't be replaced by an emoticon, even
+            if it assembles to ":-)", because "-)" has been typed earlier than ":". This is to
+            prevent situations in which for example the text "dear" is already there and someone
+            is typing a smiley ":-)" in front of it. This would lead to ":dear" in first place.
+            If no chronologically order is enforced, the text ":d" would now be replaced by
+            the Rolling-On-The-Floor smiley, because it maps to ":D". And this is not what we want!
+            </para>
+            <para>
+            All macros must be injective. Thus a macro named ":-)" can't be added if the macro
+            ":-))" is already there and vice versa. Internally this is enforced by comparing each
+            macro to all existing macros with <see cref="M:System.String.StartsWith(System.String)"/>. Please note that
+            a macro is case-insensitive!
+            </para>
+            </remarks>
+            <param name="InMacro">A case-insensitive string that should map to <paramref name="InReplacement"/>. At least two chars are required.</param>
+            <param name="InReplacement">A custom object class providing the <see cref="M:System.Windows.Controls.IRichTextObject.CreateInstance"/> method.</param>
+            <exception cref="T:System.ArgumentException">The same macro already exists or the macro list would lose its injectivity after adding.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="InMacro"/> or <paramref name="InReplacement"/> is null.</exception>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.RemoveMacro(System.String)">
+            <summary>
+            Just removes a macro from the internal list. This has no impact on already executed macros but
+            only on new input...
+            </summary>
+            <param name="InMacro"> A case-insensitive string referring the macro to remove.</param>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">The given macro does not exist.</exception>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.InsertObject(System.Boolean,System.Windows.FrameworkElement)">
+            <summary>
+            This is the second and most powerful way to extend the control. You may insert any object class
+            derived from <see cref="T:System.Windows.FrameworkElement"/> at the current selection. There is indeed no other restriction.
+            Keep in mind that the current line is resized until the object fits into it. The text won't wrap around
+            such an object as it is threaded as a single custom letter. 
+            </summary>
+            <remarks>
+            This method does not support content serialization. That means if the underlying object is selected and copied
+            to clipboard, it won't be pasted. Or if the content gets serialized to a stream, the object will be lost.
+            In general you should use <see cref="M:System.Windows.Controls.RichTextEdit.InsertObject(System.Windows.Controls.IRichTextObject)"/> instead, whenever it is possible, to get
+            serialization support.
+            </remarks>
+            <param name="InFocusable">Set to true if you want the object to receive input signals, false otherwise.</param>
+            <param name="InElement">A custom object.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.InsertObject(System.Windows.Controls.IRichTextObject)">
+            <summary>
+            This is the second and most powerful way to extend the control. You may insert any object class
+            which implements <see cref="T:System.Windows.Controls.IRichTextObject"/> at the current selection. There is indeed no other restriction.
+            Keep in mind that the current line is resized until the object fits into it. The text won't wrap around
+            such an object as it is threaded as a single custom letter.
+            </summary>
+            <remarks>
+            The object has to implement all methods that are exported by <see cref="T:System.Windows.Controls.IRichTextObject"/>. You will 
+            automatically get support for content serialization.
+            </remarks>
+            <param name="InObject">The object class that should be used to create and insert an instance of.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.InsertString(System.String)">
+            <summary>
+            Inserts the given string at the current selection. Macros will be executed if encountered.
+            Line breaks "\r\n", "\r" or "\n" will be translated to appropiate control codes, tabs "\t"
+            will be replaced by four spaces.
+            </summary>
+            <param name="InText">A string to insert.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.InsertCtrlCode(System.Windows.Controls.ControlCode)">
+            <summary>
+            This method is intended to insert enter, item, indent or unindent. Any other
+            control code is only used internally and may break the editor if you insert
+            it manually!
+            </summary>
+            <param name="InCode">Any control code. It is not possible to type something invalid...</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.SelectAll">
+            <summary>
+            Selects all elements wihtin the control.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.RemoveSelection">
+            <summary>
+            Just removes all selected elements.
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.RichTextEdit.OnSelectionChanged">
+            <summary>
+            Will be raised everytime the selection is changed.
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.RichTextEdit.OnContentChanged">
+            <summary>
+            Will be raised each time the content is changed. This does not apply to formatting.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.AutoFocus">
+            <summary>
+            If you want to use a Toolbar for example, you will get some problems with focusing.
+            If you click at a Tollbar button or ComboBox, the rich text editor will lose focus.
+            But like known from other rich text editors it should be possible to immediately type
+            text without setting the cursor again. To realize this, set the property to true. This 
+            will focus the control everytime the mouse hovers it. 
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.IsReadOnly">
+            <summary>
+            If you just want to show content, set to true, false otherwise. This is useful when displaying
+            formatted content, that has been typed by a poster, to visitors, for example...
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.SelectionBackground">
+            <summary>
+            Gets or sets background of selected text or objects. Please note that this refers
+            to selection design only, and has no persistent effect. Refer to <see cref="P:System.Windows.Controls.RichTextEdit.FontBackground"/>
+            to change background color of text.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.SelectionForeground">
+            <summary>
+            Gets or sets the font color of selected text. This has no effect
+            on selected objects! Please note that this refers
+            to selection design only, and has no persistent effect. Refer to <see cref="P:System.Windows.Controls.RichTextEdit.FontForeground"/>
+            to change foreground color of text.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.HasMaxTextWidth">
+            <summary>
+            Is true if <see cref="P:System.Windows.Controls.RichTextEdit.MaxTextWidth"/> is set to a custom value (unequal to <see cref="F:System.Double.NaN"/>), false otherwise.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.MaxTextWidth">
+            <summary>
+            Set to <see cref="F:System.Double.NaN"/> to let the RichTextEdit automatically determine a
+            proper value which will always get rid of a horizontal scrollbar! This behavior 
+            requires <see cref="P:System.Windows.Controls.RichTextEdit.VerticalScrollBarWidth"/> to be set to an appropiate value
+            if you have changed the scrollbar designs! Otherwise the text width will always be limited
+            to the value you set here (in pixels).
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.BorderRadius">
+            <summary>
+            Gets or sets the border radius in pixels for each corner of the control. Just refer
+            to <see cref="P:System.Windows.Controls.Border.CornerRadius"/> for more information. The default value is three for each corner.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.BorderThickness">
+            <summary>
+            Gets or sets the border thickness in pixels for each side of the control. Just refer
+            to <see cref="P:System.Windows.Controls.Border.BorderThickness"/> for more information. The default value is one for each side.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.BorderBrush">
+            <summary>
+            Gets or sets the border brush of the control. This is the brush used to draw the border line
+            given through <see cref="P:System.Windows.Controls.RichTextEdit.BorderThickness"/> and <see cref="P:System.Windows.Controls.RichTextEdit.BorderRadius"/>. The default value is
+            a <see cref="T:System.Windows.Media.SolidColorBrush"/> of <see cref="P:System.Windows.Media.Colors.Black"/>.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.VerticalScrollBarWidth">
+            <summary>
+            Gets or sets the vertical scrollbar width in pixels. Please note that this property is defaulted
+            to 25 pixels. If you use a custom scrollbar design you have to adjust this value 
+            in order to get correct behavior for the <see cref="P:System.Windows.Controls.RichTextEdit.MaxTextWidth"/> option.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.HorizontalScrollBarVisibility">
+            <summary>
+            Gets or sets the horizontal scrollbar visibility. The default value is <see cref="F:System.Windows.Controls.ScrollBarVisibility.Auto"/>.
+            If you don't use a custom value for <see cref="P:System.Windows.Controls.RichTextEdit.MaxTextWidth"/> I recommend to don't change the default value.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.VerticalScrollBarVisibility">
+            <summary>
+            Gets or sets the vertical scrollbar visibility. The default value is <see cref="F:System.Windows.Controls.ScrollBarVisibility.Auto"/>.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.Background">
+            <summary>
+            Gets or sets the background of the control. The default value is a <see cref="T:System.Windows.Media.SolidColorBrush"/> of 
+            <see cref="P:System.Windows.Media.Colors.Transparent"/>. Just refer to <see cref="P:System.Windows.Controls.Border.Background"/> for more information.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.CursorColor">
+            <summary>
+            Gets or sets the cursor color. The default value is <see cref="P:System.Windows.Media.Colors.Black"/>. The cursor will periodically
+            switch between <see cref="P:System.Windows.Controls.RichTextEdit.Background"/> and a <see cref="T:System.Windows.Media.SolidColorBrush"/> of the value specified here.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.Restriction">
+            <summary>
+            Allows you to restrict all common font properties. I always recommend to do this! There is simply no
+            application in which all settings are required and the more settings you allow, the more chances of
+            misuses will arise.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.FontFamily">
+            <summary>
+            Gets or sets the font family for current selection. If the selection is inhomogenous in respect to this
+            property,  the last setting in front of selection will be returned. If you set this value for a given selection,
+            all contained letters will use the new font family. If the selection is of zero length, the getter will return
+            the font family in front of selection and the setter will only change the value for newly typed chars or unformatted
+            clipboard insertions. 
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.FontStyle">
+            <summary>
+            Gets or sets the font style for current selection. If the selection is inhomogenous in respect to this
+            property,  the last setting in front of selection will be returned. If you set this value for a given selection,
+            all contained letters will use the new font style. If the selection is of zero length, the getter will return
+            the font style in front of selection and the setter will only change the value for newly typed chars or unformatted
+            clipboard insertions. 
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.FontWeight">
+            <summary>
+            Gets or sets the font weight for current selection. If the selection is inhomogenous in respect to this
+            property,  the last setting in front of selection will be returned. If you set this value for a given selection,
+            all contained letters will use the new font weight. If the selection is of zero length, the getter will return
+            the font weight in front of selection and the setter will only change the value for newly typed chars or unformatted
+            clipboard insertions. 
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.FontSize">
+            <summary>
+            Gets or sets the font size for current selection in pixels. If the selection is inhomogenous in respect to this
+            property,  the last setting in front of selection will be returned. If you set this value for a given selection,
+            all contained letters will use the new font size. If the selection is of zero length, the getter will return
+            the font size in front of selection and the setter will only change the value for newly typed chars or unformatted
+            clipboard insertions. 
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.FontForeground">
+            <summary>
+            Gets or sets the font foreground for current selection. If the selection is inhomogenous in respect to this
+            property,  the last setting in front of selection will be returned. If you set this value for a given selection,
+            all contained letters will use the new font foreground. If the selection is of zero length, the getter will return
+            the font foreground in front of selection and the setter will only change the value for newly typed chars or unformatted
+            clipboard insertions. 
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.FontBackground">
+            <summary>
+            Gets or sets the font background for current selection. This setting also applies to objects and not
+            only letters! If the selection is inhomogenous in respect to this
+            property,  the last setting in front of selection will be returned. If you set this value for a given selection,
+            all contained letters and objects will use the new font background. If the selection is of zero length, the getter will return
+            the font background in front of selection and the setter will only change the value for newly typed chars, objects or unformatted
+            clipboard insertions. 
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.TextAttributes">
+            <summary>
+            Gets or sets the text attributes for current selection. If the selection is inhomogenous in respect to this
+            property,  the last setting in front of selection will be returned. If you set this value for a given selection,
+            all contained letters will use the new text attributes. If the selection is of zero length, the getter will return
+            the text attributes in front of selection and the setter will only change the value for newly typed chars or unformatted
+            clipboard insertions. 
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.TextLineDistance">
+            <summary>
+            Gets or sets the line distance in pixels. Like <see cref="P:System.Windows.Controls.RichTextEdit.TextAlignment"/> this setting will apply
+            to all lines of the current selection including all lines before and behind, until any
+            control code appears. This is a bevahior known from Microsoft Office. The default value is zero.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.TextAlignment">
+            <summary>
+            Gets or sets the text alignment. Like <see cref="P:System.Windows.Controls.RichTextEdit.TextLineDistance"/> this setting will apply
+            to all lines of the current selection including all lines before and behind, until any
+            control code appears. This is a behavior known from Microsoft Office. The default value is 
+            <see cref="F:System.Windows.Controls.TextAlign.Block"/>.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.HasClipboardAccess">
+            <summary>
+            <para>
+            If invoked for the first time, this method internally tries to access the clipboard, which may lead
+            to a browser dialog requesting if the user wants to allow or deny access to the clipboard. If this
+            property is true, the control may use the clipboard for copy operations. Be aware of that currently
+            only the Internet Explorer seems to support such clipboard operations! For all other browser this property
+            will always be false.
+            </para><para>
+            Even if this property is false, a user may use Ctrl+V or Ctrl+C as usual. But effects will only show up
+            within the current Silverlight application. That means even if you have no clipboard access a user may
+            copy/paste formatted text between controls within the current application. This behavior is provided by
+            the control and neither by Silverlight or the browser...
+            </para>
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.RichTextEdit.Snapshot">
+            <summary>
+            Represents internal editor data as a string. Keep in mind that a snapshot may only
+            be used until the underlying editor is being changed. After changes you may use the
+            string only but no snapshot instance methods. All indices will refer to the snapshot
+            string.
+            </summary>
+            <remarks>
+            <para>
+            A rich text editor has to solve some serious issues. One of them is to provide
+            access to the internal data as string. Even if this seems to be natural, it is not
+            that easy. The internal data contains various formatting attributes, is splitted up into
+            single letters and may be delimited by control codes or custom objects. There also has
+            to be a way to save formatted data and load it from any stream source. Those two issues
+            are solved by snapshots.
+            </para>
+            <para>
+            How a snapshot works: When acquiring a snapshot with <see cref="M:System.Windows.Controls.RichTextEdit.QueryText"/> or
+            <see cref="M:System.Windows.Controls.RichTextEdit.QuerySelectionText"/>, the editor extracts all letters and some basic
+            formatting information supported by strings. It creates an index translation list, which
+            closes the gap between a usual string and internal editor content. This way it is possible
+            to translate every char index of the returned string into an internal editor index, which
+            allows you to select/remove text by referring to offsets within the string. If you remove
+            text, the index table will be updated and the snapshot stay valid. If the editor is being
+            changed outside the snapshot (by user input for example), the index table is invalid and
+            may not be updated. In such a case you will have to reaquire the snapshot.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.Snapshot.Select(System.Windows.Controls.CursorPosition,System.Int32,System.Int32)">
+            <summary>
+            Allows you to select editor content by referring to char ranges within the snapshot string.
+            Please note that this has no impact on the current snapshot.
+            </summary>
+            <param name="InCursorPos">Move cursor to start or end of selection.</param>
+            <param name="InIndex">Char offset where selection should start.</param>
+            <param name="InLength">Selection length in chars.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.Snapshot.InsertObject(System.Windows.Controls.IRichTextObject)">
+            <summary>
+            Inserts the given rich text object at cursor position. It is not supported to
+            implicitly overwrite selection, so make sure that <see cref="P:System.Windows.Controls.RichTextEdit.Snapshot.SelectionLength"/>
+            is zero. It is also not supported to insert an object outside the current snapshot.
+            So make sure to set the cursor into the current snapshot.
+            </summary>
+            <param name="InObject">A rich text object to insert.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.Snapshot.InsertObject(System.Boolean,System.Windows.FrameworkElement)">
+            <summary>
+            Inserts the given framework element at cursor position. It is not supported to
+            implicitly overwrite selection, so make sure that <see cref="P:System.Windows.Controls.RichTextEdit.Snapshot.SelectionLength"/>
+            is zero. It is also not supported to insert an object outside the current snapshot.
+            So make sure to set the cursor into the current snapshot.
+            </summary>
+            <param name="InFocusable">Should the object be focusable</param>
+            <param name="InElement">An framework element to insert</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.Snapshot.InsertString(System.String)">
+            <summary>
+            Inserts the given string at cursor position. It is not supported to
+            implicitly overwrite selection, so make sure that <see cref="P:System.Windows.Controls.RichTextEdit.Snapshot.SelectionLength"/>
+            is zero. It is also not supported to insert an object outside the current snapshot.
+            So make sure to set the cursor into the current snapshot. Please note that
+            macros are only replaced within the given string.
+            </summary>
+            <param name="InText">A string to insert.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.Snapshot.Remove(System.Int32@,System.Int32@)">
+            <summary>
+            Removes the given characters and will update the snapshot string.
+            </summary>
+            <remarks>
+            Imagine a situation where you want to remove one char of a macro. To you a
+            macro is not detectable as they are translated back to their string representation
+            when a snapshot is being created. To complete your deletion request, the snapshot
+            will have to remove the whole macro. This is why the given parameters may be changed
+            to suite such internal adjustments. You should never assume that any of the passed arguments
+            will stay unchanged even if this usually might be the case.
+            </remarks>
+            <param name="InIndex">Char offset where to remove chars. (May be adjusted)</param>
+            <param name="InLength">Amount of chars to remove. (May be adjusted)</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.Snapshot.MoveCursor(System.Int32)">
+            <summary>
+            Moves the cursor to the given char. Please note that this will automatically set 
+            <see cref="P:System.Windows.Controls.RichTextEdit.Snapshot.SelectionLength"/> to zero.
+            </summary>
+            <param name="InPosition">Char offset where cursor should be moved to.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.Snapshot.Serialize(System.Boolean,System.IO.Stream)">
+            <summary>
+            Serializes the whole snapshot to the given stream. A serialization
+            includes all formatting information, control codes, macros and custom objects based
+            on the object class interface (OCI).
+            </summary>
+            <param name="InIgnoreWarnings">Set to true if you want to ignore warnings for unserializable content.</param>
+            <param name="InStream">A writeable, seekable and resizeable stream. I recommend a memory stream to buffer
+            serialization output.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextEdit.Snapshot.Serialize(System.Boolean,System.Int32,System.Int32,System.IO.Stream)">
+            <summary>
+            Serializes a substring of the snapshot to the given stream. Please note that this substring
+            shall not exceed the snapshot boundaries, even if there might be more available chars. A serialization
+            includes all formatting information, control codes, macros and custom objects based
+            on the object class interface (OCI).
+            </summary>
+            <param name="InIgnoreWarnings">Set to true if you want to ignore warnings for unserializable content.</param>
+            <param name="InStart">An offset within the snapshot string, where to start serialization.</param>
+            <param name="InLength">The count of characters to serialize. </param>
+            <param name="InStream">A writeable, seekable and resizeable stream. I recommend a memory stream to buffer
+            serialization output.</param>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.Snapshot.Parent">
+            <summary>
+            Gets the related parent <see cref="T:System.Windows.Controls.RichTextEdit"/> control.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.Snapshot.Text">
+            <summary>
+            Gets the snapshot string.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.Snapshot.SelectionStart">
+            <summary>
+            Gets the char offset of the current selection within the current snapshot.
+            If this offset is outside the snapshot, an exception is thrown.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RichTextEdit.Snapshot.SelectionLength">
+            <summary>
+            Gets the length of the current selection in chars.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.CursorPosition">
+            <summary>
+            If you call <see cref="M:System.Windows.Controls.RichTextEdit.Snapshot.Select(System.Windows.Controls.CursorPosition,System.Int32,System.Int32)"/>, you may specify if the cursor
+            should be positioned at the end or beginning of selection.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.CursorPosition.Start">
+            <summary>
+            Position cursor and the beginning of selection.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.CursorPosition.End">
+            <summary>
+            Position cursor and the end of selection.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.ControlCode">
+            <summary>
+            Codes that may be removed by selection or proper keyboard actions and affecting
+            the internal layout algorithm without being visible.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ControlCode.Enter">
+            <summary>
+            A simple line break. This does not leave the current tag as in contract <see cref="F:System.Windows.Controls.ControlCode.Unindent"/> does.
+            Please keep in mind, that the "ENTER"-key does not necessarily map to this control code but is
+            content dependend.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ControlCode.Indent">
+            <summary>
+            A blockquote that forces an  indent of all following text, until <see cref="F:System.Windows.Controls.ControlCode.Unindent"/> is encountered. 
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ControlCode.Unindent">
+            <summary>
+            If currently there is no indent, this code does simply nothing. Otherwise it closes any <see cref="F:System.Windows.Controls.ControlCode.Item"/>
+            or <see cref="F:System.Windows.Controls.ControlCode.Indent"/>.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ControlCode.Item">
+            <summary>
+            An item of an unordered list that forces an indent of all following text,
+            until <see cref="F:System.Windows.Controls.ControlCode.Unindent"/> is encountered. The first indent is preceded by an unordered list icon as known
+            from common text editors.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.TextAttributes">
+            <summary>
+            A collection of text attributes. The flags <see cref="F:System.Windows.Controls.TextAttributes.Sup"/> and <see cref="F:System.Windows.Controls.TextAttributes.Sub"/> shall not
+            be used simultanously. All other flags may be combined.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.TextAttributes.None">
+            <summary>
+            Default attributes.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.TextAttributes.Sup">
+            <summary>
+            Automatically reduces font size to 70% and aligns the text at line top.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.TextAttributes.Sub">
+            <summary>
+            Automatically reduces font size to 70% and aligns the text at line bottom.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.TextAttributes.StrikeThrough">
+            <summary>
+            Currently this flag has no effect. We have to wait until Silverlight does support it.
+            Text decoration like strike through is an operation heavily depending on font settings.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.TextAttributes.Underlined">
+            <summary>
+            Underlines selected letters and objects. This does not refer to Silverlight's underlining
+            features but is a custom implementation.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.TextAlign">
+            <summary>
+            The RichTextEdit supports three different text alignments. Right aligned text is
+            not supported, because it would break the whole editor logic.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.TextAlign.Left">
+            <summary>
+            Text will be left aligned.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.TextAlign.Center">
+            <summary>
+            Each line will be centered.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.TextAlign.Block">
+            <summary>
+            An extension of left-alignment which stretches all continued lines to close up
+            with the right text surface border. This is known from books, for example. It has
+            no impact on font-rendering but is done by stretching spaces.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.SizeRange">
+            <summary>
+            A range of font sizes that may be used with <see cref="M:System.Windows.Controls.RichTextRestrictionEntry.AddSizeRange(System.Windows.Controls.SizeRange[])"/>.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.SizeRange.#ctor(System.Double,System.Double)">
+            <summary>
+            Will directly initialize the structure. 
+            </summary>
+            <param name="InMin">Minimum font size.</param>
+            <param name="InMax">Maximum font size.</param>
+        </member>
+        <member name="T:System.Windows.Controls.ColorRange">
+            <summary>
+            A range of font colors that may be used with <see cref="M:System.Windows.Controls.RichTextRestrictionEntry.AddColorRange(System.Windows.Controls.ColorRange[])"/>.
+            Please note that only color channels are compared. That means a range from 0x10203040 to 0x70605040 will map to
+            colors that have alpha values from 0x10 to 0x70 AND Red values from 0x20 to 0x60 AND green values from 0x30 to 0x50 AND
+            blue values of 0x40. 
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ColorRange.#ctor(System.Windows.Media.Color,System.Windows.Media.Color)">
+            <summary>
+            Will directly initialize the structure. 
+            </summary>
+            <param name="InMin">Minimum font color.</param>
+            <param name="InMax">Maximum font color.</param>
+        </member>
+        <member name="T:System.Windows.Controls.RichTextRestrictionEntry">
+            <summary>
+            Each restriction entry contains a custom set of font attributes e.g. ranges.
+            The important thing is, that such an entry can either be excluding or including.
+            This will heavily reduce policy size.
+            </summary>
+            <remarks>
+            For more information about access evaluation please refer to <see cref="T:System.Windows.Controls.RichTextRestriction"/>.
+            </remarks>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextRestrictionEntry.#ctor(System.Windows.Controls.RichTextRestrictionEntry.Type,System.Object[])">
+            <summary>
+            Initializes an access entry instance. You may supply all possible enumerations
+            in <paramref name="InValues"/>. As each enumeration type maps to an unique add method,
+            the constructor may automatically process the given values...
+            </summary>
+            <param name="InType">The entry type.</param>
+            <param name="InValues">An optional list of enumerations that should be applied to this entry.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextRestrictionEntry.AddWeight(System.Windows.FontWeight[])">
+            <summary>
+            Adds a collection of font weights to this entry.
+            </summary>
+            <param name="InWeight">One or more font weights to add.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextRestrictionEntry.AddStyle(System.Windows.FontStyle[])">
+            <summary>
+            Adds a collection of font styles to this entry.
+            </summary>
+            <param name="InStyle">One or more font styles to add.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextRestrictionEntry.AddFamily(System.Windows.Media.FontFamily[])">
+            <summary>
+            Adds a collection of font families to this entry.
+            </summary>
+            <param name="InFamily">One or more font families to add.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextRestrictionEntry.AddSize(System.Double[])">
+            <summary>
+            Adds a collection of font sizes to this entry.
+            </summary>
+            <param name="InSize">One or more font sizes to add.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextRestrictionEntry.AddSizeRange(System.Windows.Controls.SizeRange[])">
+            <summary>
+            Adds a collection of size ranges to this entry. Refer to <see cref="T:System.Windows.Controls.SizeRange"/> for more information. 
+            </summary>
+            <param name="InRange">One or more size ranges to add.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextRestrictionEntry.AddColor(System.Windows.Media.Color[])">
+            <summary>
+            Adds a collection of font colors to this entry. Colors are valid for
+            both, fore- and background.
+            </summary>
+            <param name="InColor">One or more font colors to add.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextRestrictionEntry.AddColorRange(System.Windows.Controls.ColorRange[])">
+            <summary>
+            Adds a collection of color ranges to this entry. Color ranges are applied on a
+            per channel base. Refer to <see cref="T:System.Windows.Controls.ColorRange"/> for more information. Colors
+            are valid for both, fore- and background.
+            </summary>
+            <param name="InColorRange">One or more color ranges to add.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextRestrictionEntry.AddStretch(System.Windows.FontStretch[])">
+            <summary>
+            Adds a collection of font stretches to this entry.
+            </summary>
+            <param name="InStretch">One or more font stretches to add.</param>
+        </member>
+        <member name="T:System.Windows.Controls.RichTextRestrictionEntry.Type">
+            <summary>
+            Provides two kinds of restriction entries.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.RichTextRestrictionEntry.Type.Including">
+            <summary>
+            Represents an inclusive ventry which allows all contained font attributes.
+            </summary>
+            <remarks>
+            Please note that the final access evaluation might deny one or more font attributes
+            that have been granted with such an entry.
+            </remarks>
+        </member>
+        <member name="F:System.Windows.Controls.RichTextRestrictionEntry.Type.Excluding">
+            <summary>
+            Represents an exclusive entry which rejects all contained font attributes.
+            </summary>
+            <remarks>
+            Please note that the final access evaluation might deny one or more font attributes
+            that have been granted with such an entry.
+            </remarks>
+        </member>
+        <member name="T:System.Windows.Controls.RichTextRestriction">
+            <summary>
+            This class provides a solid font attribute access scheme. The <see cref="T:System.Windows.Controls.RichTextEdit"/>
+            uses this class to negotiate access to font attributes. 
+            </summary>
+            <remarks>
+            There are two kinds of restriction classes. Either such a class can be allowing or denying.
+            The first one allows all font attributes and may be restricted with exclusive entries in first
+            place, which may again be overwritten by adding further inclusive entries. A denying class
+            will reject all font settings and allow the ones given by inclusive entries which may again
+            be overwritten by exclusive ones. The order in which entries are applied has no impact. 
+            </remarks>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextRestriction.#ctor(System.Windows.Controls.RichTextRestriction.Type,System.Windows.Controls.RichTextRestrictionEntry[])">
+            <summary>
+            Initializes a set of restriction entries.
+            </summary>
+            <param name="InType">The restriction type.</param>
+            <param name="InEntries">An optional enumeration of restrictions entries...</param>
+        </member>
+        <member name="M:System.Windows.Controls.RichTextRestriction.AddEntry(System.Windows.Controls.RichTextRestrictionEntry[])">
+            <summary>
+            Adds a collection of restriction entries. 
+            </summary>
+            <param name="InEntry">A collection of inclusive and/or exclusive entries.</param>
+        </member>
+        <member name="T:System.Windows.Controls.RichTextRestriction.Type">
+            <summary>
+            Provides two kinds of restrictions.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.RichTextRestriction.Type.Allowing">
+            <summary>
+            Allows all formatting and may be restricted with exclsuive entries.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.RichTextRestriction.Type.Denying">
+            <summary>
+            Rejects all formatting and may be extended with inclusive entries.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.NotificationHandler">
+            <summary>
+            Is used to dispatch parameterless events.
+            </summary>
+            <param name="sender">The object that has raised the event.</param>
+        </member>
+        <member name="T:System.Windows.Controls.IRichTextObject">
+            <summary>
+            Provides a way to not only insert your custom FrameworkElement, but also to
+            include it in Copy/Paste or Serialization/Deserialization operations!
+            </summary>
+            <remarks>
+            <para>
+            Keep in mind that you may only use a rich text object after it has been registered
+            in the editor. See <see cref="M:System.Windows.Controls.RichTextEdit.RegisterObject(System.Windows.Controls.IRichTextObject)"/> for more information.
+            </para>
+            <para>
+            A rich text object is not necessary a visible one, but provides the
+            following interface to create instances of visble framework elements and
+            manages serialization of such object instances.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:System.Windows.Controls.IRichTextObject.GetTypeID">
+            <summary>
+            Each custom object requires an unique type ID. If your custom object is
+            serialized, this type ID is being stored in the output stream. After this
+            Serialize() will be invoked. If later the stream is being deserialized, your
+            Deserialize() method will be called only if the deserialized object's type ID matches
+            the one of your object! 
+            </summary>
+            <returns>An unique object ID.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.IRichTextObject.Serialize(System.Windows.FrameworkElement,System.IO.BinaryWriter)">
+            <summary>
+            Shall serialize all required information about your object, so that you later are
+            able to deserialize it to the exact state that it was in during serialization.
+            Of course you may and should use binary serialization. 
+            </summary>
+            <remarks>
+            In general you will only serialize the parameters that have been used to create this
+            rich text object interface instance.
+            </remarks>
+            <param name="InElement">Any object instance. You can rely on the fact that it has been obtained
+            through <see cref="M:System.Windows.Controls.IRichTextObject.CreateInstance"/>.</param>
+            <param name="InTarget">A seekable, resizeable, writeable but not necessarily readable stream.</param>
+        </member>
+        <member name="M:System.Windows.Controls.IRichTextObject.Deserialize(System.Boolean,System.IO.BinaryReader)">
+            <summary>
+            Shall deserialize binary data to an renderable object. 
+            </summary>
+            <remarks>
+            Please note that security leaks within this method may lead to security leaks
+            within your whole web service! So please make sure to check all deserialized
+            data for correctness and integrity. If you encounter invalid data, throw an
+            exception of any type...
+            </remarks>
+            <param name="InIgnoreWarnings">Is true if the user want to ignore any warnings. It's your duty to decide
+            what you thread as warning but in general serialization should only generate warnings if something really
+            could be wrong. A warning should never be generated for invalid data. In such a case always throw an exception!
+            Consider a warning as something your code is not really sure about but what is also not invalid...</param>
+            <param name="InSource">A readable, seekable not necessary writeable or resizeable binary stream.</param>
+            <returns>A renderable object instance, that may be directly inserted into the editor. One should be
+            technically able to use this instance for <see cref="M:System.Windows.Controls.RichTextEdit.InsertObject(System.Boolean,System.Windows.FrameworkElement)"/>.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.IRichTextObject.CreateInstance">
+            <summary>
+            This method is called, whenever the editor wants to display a new instance of the object class
+            represented by this rich text object interface.
+            </summary>
+            <returns>A new renderable object instance.</returns>
+        </member>
+        <member name="P:System.Windows.Controls.IRichTextObject.IsFocusable">
+            <summary>
+            If you want your object to receive input signals, you should return true, false otherwise.
+            Please note that if your component is not suitable to be focused, a value of true may
+            cause problems with mouse selection!
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.MSNEmoticons">
+            <summary>
+            Just a little demo for what macros may be used.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.MSNEmoticons.Apply(System.Windows.Controls.RichTextEdit)">
+            <summary>
+            Will add a default macro table to the given editor. This adds support for MSN emoticons.
+            </summary>
+            <param name="InEdit">The rich text editor which should be extended with MSN emoticons.</param>
+        </member>
+    </members>
+</doc>

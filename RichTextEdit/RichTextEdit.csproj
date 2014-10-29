@@ -1,0 +1,115 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{84759C6F-60FF-4B1A-B88A-086C978FBBCB}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RichTextEdit</RootNamespace>
+    <AssemblyName>RichTextEdit</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>ClientBin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>ClientBin\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccess.cs" />
+    <Compile Include="Imaging.cs" />
+    <Compile Include="Letter.cs" />
+    <Compile Include="LineItem.cs" />
+    <Compile Include="MSNEmoticons.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Public.cs" />
+    <Compile Include="ResourceManager.cs" />
+    <Compile Include="RichTextEdit.cs" />
+    <Compile Include="Scripting.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ScrollViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\Angry.png" />
+    <EmbeddedResource Include="Icons\brokeheart.png" />
+    <EmbeddedResource Include="Icons\confused.png" />
+    <EmbeddedResource Include="Icons\Cool.png" />
+    <EmbeddedResource Include="Icons\Crying.png" />
+    <EmbeddedResource Include="Icons\Disappointed.png" />
+    <EmbeddedResource Include="Icons\Embarressed.png" />
+    <EmbeddedResource Include="Icons\EnumIndent.png" />
+    <EmbeddedResource Include="Icons\Happy.png" />
+    <EmbeddedResource Include="Icons\Hihi.png" />
+    <EmbeddedResource Include="Icons\kiss.png" />
+    <EmbeddedResource Include="Icons\love.png" />
+    <EmbeddedResource Include="Icons\mad.png" />
+    <EmbeddedResource Include="Icons\nerd.png" />
+    <EmbeddedResource Include="Icons\Rofl.png" />
+    <EmbeddedResource Include="Icons\rolleyes.png" />
+    <EmbeddedResource Include="Icons\roses.png" />
+    <EmbeddedResource Include="Icons\sad.png" />
+    <EmbeddedResource Include="Icons\sarcastic.png" />
+    <EmbeddedResource Include="Icons\secret.png" />
+    <EmbeddedResource Include="Icons\sick.png" />
+    <EmbeddedResource Include="Icons\sleepy.png" />
+    <EmbeddedResource Include="Icons\Surprised.png" />
+    <EmbeddedResource Include="Icons\thinking.png" />
+    <EmbeddedResource Include="Icons\whisper.png" />
+    <EmbeddedResource Include="Icons\wiltedroses.png" />
+    <EmbeddedResource Include="Icons\Winking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\v3.0\Microsoft.Silverlight.CSharp.targets" Condition="" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

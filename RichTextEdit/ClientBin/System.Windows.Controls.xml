@@ -1,0 +1,3867 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>System.Windows.Controls</name>
+    </assembly>
+    <members>
+        <member name="T:System.Windows.Controls.SelectionMode">
+            <summary>
+            Defines the selection behavior for a ListBox.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.SelectionMode.Single">
+            <summary>
+            The user can select only one item at a time.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Input.KeyboardNavigation">
+            <summary>
+            Provides logical and directional navigation between focusable objects.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Input.KeyboardNavigation.GetAcceptsReturn(System.Windows.DependencyObject)">
+            <summary>
+            Gets the value of the AcceptsReturn attached property for the
+            specified element.
+            </summary>
+            <param name="element">
+            The element from which to read the attached property.
+            </param>
+            <returns>The value of the AcceptsReturn property.</returns>
+        </member>
+        <member name="M:System.Windows.Input.KeyboardNavigation.SetAcceptsReturn(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Sets the value of the AcceptsReturn attached property for the
+            specified element.
+            </summary>
+            <param name="element">
+            The element to write the attached property to.
+            </param>
+            <param name="enabled">The property value to set.</param>
+        </member>
+        <member name="F:System.Windows.Input.KeyboardNavigation.AcceptsReturnProperty">
+            <summary>
+            Identifies the AcceptsReturn attached property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Input.KeyboardNavigation.GetVisualRoot(System.Windows.DependencyObject)">
+            <summary>
+            Get the root of the object's visual tree.
+            </summary>
+            <param name="d">DependencyObject.</param>
+            <returns>Root of the object's visual tree.</returns>
+        </member>
+        <member name="T:System.Windows.Controls.RangeBase">
+            <summary>
+            Represents the base class for elements that have a specific range.
+            Examples of such elements are ScrollBar, ProgressBar and Slider.  This
+            class defines the relevant events and properties, and provides handlers
+            for the events.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.RangeBase.FormatString">
+            <summary>
+            Format string for RangeBase
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.RangeBase._levelsFromRootCall">
+            This section contains static helper variables used to keep track
+            of which variable values have been updated/coerced, and when to
+            call the corresponding property changed methods.
+        </member>
+        <member name="F:System.Windows.Controls.RangeBase.MinimumProperty">
+            <summary>
+            Identifies the Minimum dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.OnMinimumPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            MinimumProperty property changed handler.
+            </summary>
+            <param name="d">RangeBase that changed its Minimum.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.RangeBase.MaximumProperty">
+            <summary>
+            Identifies the Maximum dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.OnMaximumPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            MaximumProperty property changed handler.
+            </summary>
+            <param name="d">RangeBase that changed its Maximum.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.RangeBase.LargeChangeProperty">
+            <summary>
+            Identifies the LargeChange dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.OnLargeChangePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            LargeChangeProperty property changed handler.
+            </summary>
+            <param name="d">RangeBase that changed its LargeChange.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.RangeBase.SmallChangeProperty">
+            <summary>
+            Identifies the SmallChange dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.OnSmallChangePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            SmallChangeProperty property changed handler.
+            </summary>
+            <param name="d">RangeBase that changed its SmallChange.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.RangeBase.ValueProperty">
+            <summary>
+            Identifies the Value dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.OnValuePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            ValueProperty property changed handler.
+            </summary>
+            <param name="d">RangeBase that changed its Value.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.#ctor">
+            <summary>
+            Initializes a new instance of the RangeBase class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.OnMaximumChanged(System.Double,System.Double)">
+            <summary>
+            Called when the Maximum property changes.
+            </summary>
+            <param name="oldMaximum">Old value of the Maximum property.</param>
+            <param name="newMaximum">New value of the Maximum property.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.OnMinimumChanged(System.Double,System.Double)">
+            <summary>
+            Called when the Minimum property changes.
+            </summary>
+            <param name="oldMinimum">Old value of the Minimum property.</param>
+            <param name="newMinimum">New value of the Minimum property.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.OnValueChanged(System.Double,System.Double)">
+            <summary>
+            Called when the Value property changes.
+            </summary>
+            <param name="oldValue">Old value of the Value property.</param>
+            <param name="newValue">New value of the Value property.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.CoerceMaximum">
+            <summary>
+            Ensure the Maximum is greater than or equal to the minimum.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.CoerceValue">
+            <summary>
+            Ensure the value falls between the Minimum and Maximum values.
+            This function assumes that (Maximum >= Minimum)
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.IsValidDoubleValue(System.Object)">
+            <summary>
+            Check if a value is a value double.
+            </summary>
+            <param name="value">Value.</param>
+            <returns>true if a valid double; false otherwise.</returns>
+            <remarks>
+            This method is set to private, and is only expected to be
+            called from our property changed handlers.
+            </remarks>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.IsValidChange(System.Object)">
+            <summary>
+            Check if a value is a valid change for the two change properties.
+            </summary>
+            <param name="value">Value.</param>
+            <returns>true if a valid value; false otherwise.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.RangeBase.ToString">
+            <summary>
+            Provides a string representation of a RangeBase object.
+            </summary>
+            <returns>
+            Returns the string representation of a RangeBase object.
+            </returns>
+        </member>
+        <member name="P:System.Windows.Controls.RangeBase.Minimum">
+            <summary>
+            Gets or sets the Minimum possible Value of the range element.  The
+            default value is zero.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RangeBase.Maximum">
+            <summary>
+            Gets or sets the Maximum possible Value of the range element.
+            The default values is one.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RangeBase.LargeChange">
+            <summary>
+            Gets or sets a value to be added to or subtracted from the Value of
+            a RangeBase control.  The default values is one.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RangeBase.SmallChange">
+            <summary>
+            Gets or sets a value to be added to or subtracted from the Value of
+            a RangeBase control.  The default values is 0.1.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RangeBase.Value">
+            <summary>
+            Gets or sets the current Value of the range element.  The default
+            value is zero.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.RangeBase.ToolTip">
+            <summary>
+            Gets or sets the tool-tip object that is displayed for this element
+            in the user interface (UI).
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.RangeBase.ValueChanged">
+            <summary>
+            Occurs when the range value changes. 
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.SelectionChangedEventHandler">
+            <summary>
+            Represents the methods that handle the SelectionChanged event.
+            </summary>
+            <param name="sender">The current element along the event's route.</param>
+            <param name="e">The event arguments containing additional information about the SelectionChanged event.</param>
+        </member>
+        <member name="T:System.Windows.Controls.HyperlinkButton">
+            <summary>
+            Represents a control that displays a link to another website.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.Primitives.ButtonBase">
+            <summary>
+            Represents the base class for all Button controls.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.ContentControl">
+            <summary>
+            Represents a control with a single piece of content.
+            </summary>
+            <remarks>
+            A ContentControl has a limited default style.  If you want to enhance
+            the appearance of the control, you can create a new control template
+            that uses &lt;ContentPresenter Content="{TemplateBinding Content}" /&gt;
+            to display the value of the Content property.
+            </remarks>
+        </member>
+        <member name="F:System.Windows.Controls.ContentControl.ContentProperty">
+            <summary>
+            Identifies the Content dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ContentControl.OnContentPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            ContentProperty property changed handler.
+            </summary>
+            <param name="d">ContentControl that changed its Content.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.ContentControl.ContentTemplateProperty">
+            <summary>
+            Identifies the ContentTemplate dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ContentControl.OnContentTemplatePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            ContentTemplateProperty property changed handler.
+            </summary>
+            <param name="d">ContentControl that changed its ContentTemplate.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.ContentControl.BackgroundProperty">
+            <summary>
+            Identifies the Background dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentControl.FontFamilyProperty">
+            <summary>
+            Identifies the FontFamily dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentControl.FontSizeProperty">
+            <summary>
+            Identifies the FontSize dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentControl.FontStretchProperty">
+            <summary>
+            Identifies the FontStretch dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentControl.FontStyleProperty">
+            <summary>
+            Identifies the FontStyle dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentControl.FontWeightProperty">
+            <summary>
+            Identifies the FontWeight dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentControl.ForegroundProperty">
+            <summary>
+            Identifies the Foreground dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentControl.IsEnabledProperty">
+            <summary>
+            Identifies the IsEnabled dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ContentControl.OnIsEnabledPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            IsEnabledProperty property changed handler.
+            </summary>
+            <param name="d">ContentControl that changed IsEnabled.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.ContentControl.TextAlignmentProperty">
+            <summary>
+            Identifies the TextAlignment dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentControl.TextDecorationsProperty">
+            <summary>
+            Identifies the TextDecorations dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentControl.TextWrappingProperty">
+            <summary>
+            Identifies the TextWrapping dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ContentControl.#ctor">
+            <summary>
+            Initializes a new instance of the ContentControl class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ContentControl.OnContentChanged(System.Object,System.Object)">
+            <summary>
+            Called when the Content property changes.
+            </summary>
+            <param name="oldContent">
+            The old value of the Content property.
+            </param>
+            <param name="newContent">
+            The new value of the Content property.
+            </param>
+        </member>
+        <member name="M:System.Windows.Controls.ContentControl.OnContentTemplateChanged(System.Windows.DataTemplate,System.Windows.DataTemplate)">
+            <summary>
+            Called when the ContentTemplate property changes.
+            </summary>
+            <param name="oldContentTemplate">
+            The old value of the ContentTemplate property.
+            </param>
+            <param name="newContentTemplate">
+            The new value of the ContentTemplate property.
+            </param>
+        </member>
+        <member name="M:System.Windows.Controls.ContentControl.OnIsEnabledChanged(System.Boolean)">
+            <summary>
+            Called when the IsEnabled property changes.
+            </summary>
+            <param name="isEnabled">New value of the IsEnabled property.</param>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.Content">
+            <summary>
+            Gets or sets the content of a ContentControl.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.ContentTemplate">
+            <summary>
+            Gets or sets the data template used to display the content of the
+            ContentControl.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.Background">
+            <summary>
+            Gets or sets a brush that describes the background of the control.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.FontFamily">
+            <summary>
+            Gets or sets the name of the specified font.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.FontSize">
+            <summary>
+            Gets or sets the font size.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.FontStretch">
+            <summary>
+            Gets or sets the degree to which a font is condensed or expanded on
+            the screen.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.FontStyle">
+            <summary>
+            Gets or sets the font style.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.FontWeight">
+            <summary>
+            Gets or sets the weight or thickness of the specified font.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.Foreground">
+            <summary>
+            Gets or sets a brush that describes the foreground of the control.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.IsEnabled">
+            <summary>
+            Gets or sets a value that indicates whether this element is enabled
+            in the user interface (UI).
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.TextAlignment">
+            <summary>
+            Gets or sets a value that indicates the horizontal alignment of text
+            content.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.TextDecorations">
+            <summary>
+            Gets or sets a TextDecorationCollection that contains the effects to
+            apply to the Content text.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.TextWrapping">
+            <summary>
+            Gets or sets a value that indicates how any Content text should be
+            wrapped.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentControl.ToolTip">
+            <summary>
+            Gets or sets the tool-tip object that is displayed for this element
+            in the user interface (UI).
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ButtonBase.ClickModeProperty">
+            <summary>
+            Identifies the ClickMode dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnClickModePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            ClickModeProperty property changed handler.
+            </summary>
+            <param name="d">ButtonBase that changed its ClickMode.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ButtonBase.IsFocusedProperty">
+            <summary>
+            Identifies the IsFocused dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ButtonBase.IsMouseOverProperty">
+            <summary>
+            Identifies the IsMouseOver dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ButtonBase.IsPressedProperty">
+            <summary>
+            Identifies the IsPressed dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnIsPressedPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            IsPressedProperty property changed handler.
+            </summary>
+            <param name="d">ButtonBase that changed its IsPressed.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ButtonBase._isLoaded">
+            <summary>
+            True if the control has been loaded; false otherwise.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ButtonBase._isMouseCaptured">
+            <summary>
+            True if the mouse has been captured by this button, false otherwise.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ButtonBase._isSpaceKeyDown">
+            <summary>
+            True if the SPACE key is currently pressed, false otherwise.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ButtonBase._isMouseLeftButtonDown">
+            <summary>
+            True if the mouse's left button is currently down, false otherwise.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ButtonBase._mousePosition">
+            <summary>
+            Last known position of the mouse with respect to this Button.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ButtonBase._currentState">
+            <summary>
+            Current visual state of the button.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ButtonBase._suspendStateChanges">
+            <summary>
+            True if visual state changes are suspended; false otherwise.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.#ctor">
+            <summary>
+            Initializes a new instance of the ButtonBase class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.UpdateVisualState">
+            <summary>
+            Update the current visual state of the button.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.ChangeVisualState">
+            <summary>
+            Change to the correct visual state for the button.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.ChangeVisualState(System.Windows.Media.Animation.Storyboard)">
+            <summary>
+            Change the visual state of the button.
+            </summary>
+            <param name="state">Next visual state of the button.</param>
+            <remarks>
+            This method should not be called by controls to force a change to
+            the current visual state.  UpdateVisualState is preferred because
+            it properly handles suspension of state changes.
+            </remarks>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.CaptureMouseInternal">
+            <summary>
+            Capture the mouse.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.ReleaseMouseCaptureInternal">
+            <summary>
+            Release mouse capture if we already had it.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnClickInternal">
+            <summary>
+            Invoke OnClick for testing.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnClick">
+            <summary>
+            Raises the Click routed event.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnIsEnabledChanged(System.Boolean)">
+            <summary>
+            Called when the IsEnabled property changes.
+            </summary>
+            <param name="isEnabled">New value of the IsEnabled property.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnIsPressedChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Called when the IsPressed property changes.
+            </summary>
+            <param name="e">
+            The data for DependencyPropertyChangedEventArgs.
+            </param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnGotFocus(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handle the GotFocus event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">RoutedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnGotFocus(System.Windows.RoutedEventArgs)">
+            <summary>
+            Responds to the GotFocus event.
+            </summary>
+            <param name="e">The event data for the GotFocus event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnLostFocus(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handle the LostFocus event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">RoutedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnLostFocus(System.Windows.RoutedEventArgs)">
+            <summary>
+            Responds to the LostFocus event.
+            </summary>
+            <param name="e">The event data for the LostFocus event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Handle the KeyDown event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">KeyEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnKeyDown(System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Responds to the KeyDown event.
+            </summary>
+            <param name="e">The event data for the KeyDown event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnKeyDownInternal(System.Windows.Input.Key)">
+            <summary>
+            Handles the KeyDown event for ButtonBase.
+            </summary>
+            <param name="key">
+            The keyboard key associated with the event.
+            </param>
+            <returns>True if the event was handled, false otherwise.</returns>
+            <remarks>
+            This method exists for the purpose of unit testing since we can't
+            set KeyEventArgs.Key to simulate key press events.
+            </remarks>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnKeyUp(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Handle the KeyUp event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">KeyEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnKeyUp(System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Responds to the KeyUp event.
+            </summary>
+            <param name="e">The event data for the KeyUp event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnKeyUpInternal(System.Windows.Input.Key)">
+            <summary>
+            Handles the KeyUp event for ButtonBase.
+            </summary>
+            <param name="key">The keyboard key associated with the event.</param>
+            <returns>True if the event was handled, false otherwise.</returns>
+            <remarks>
+            This method exists for the purpose of unit testing since we can't
+            set KeyEventArgs.Key to simulate key press events.
+            </remarks>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnMouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handle the MouseEnter event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">MouseEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnMouseEnter(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Responds to the MouseEnter event.
+            </summary>
+            <param name="e">The event data for the MouseEnter event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnMouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handle the MouseLeave event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">MouseEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnMouseLeave(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Responds to the MouseLeave event.
+            </summary>
+            <param name="e">The event data for the MouseLeave event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handle the MouseLeftButtonDown event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">MouseButtonEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Responds to the MouseLeftButtonDown event.
+            </summary>
+            <param name="e">
+            The event data for the MouseLeftButtonDown event.
+            </param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handle the MouseLeftButtonUp event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">MouseButtonEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Responds to the MouseLeftButtonUp event.
+            </summary>
+            <param name="e">
+            The event data for the MouseLeftButtonUp event.
+            </param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnMouseMove(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handle the MouseMove event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">MouseEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.OnMouseMove(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Responds to the MouseMove event.
+            </summary>
+            <param name="e">The event data for the MouseMove event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ButtonBase.IsValidMousePosition">
+            <summary>
+            Determine if the mouse is above the button based on its last known
+            position.
+            </summary>
+            <returns>
+            True if the mouse is considered above the button, false otherwise.
+            </returns>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ButtonBase.ClickMode">
+            <summary>
+            Gets or sets when the Click event should occur.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ButtonBase.IsFocused">
+            <summary>
+            Gets a value that determines whether this element has logical focus.
+            </summary>
+            <remarks>
+            IsFocused will not be set until OnFocus has been called.  It may not
+            yet have been set if you check it in your own Focus event handler.
+            </remarks>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ButtonBase.IsMouseOver">
+            <summary>
+            Gets a value indicating whether the mouse pointer is located over
+            this element.
+            </summary>
+            <remarks>
+            IsMouseOver will not be set until MouseEnter has been called.  It
+            may not yet have been set if you check it in your own MouseEnter
+            event handler.
+            </remarks>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ButtonBase.IsPressed">
+            <summary>
+            Gets a value that indicates whether a ButtonBase is currently
+            activated.
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.Primitives.ButtonBase.Click">
+            <summary>
+            Occurs when a Button is clicked.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.HyperlinkButton.NavigateUriProperty">
+            <summary>
+            Identifies the NavigateUri dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.HyperlinkButton.TargetNameProperty">
+            <summary>
+            Identifies the TargetName dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.HyperlinkButton._elementRoot">
+            <summary>
+            Root template part of the HyperlinkButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.HyperlinkButton._elementFocusVisual">
+            <summary>
+            Focus visual template part of the HyperlinkButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.HyperlinkButton._stateNormal">
+            <summary>
+            Normal state of the HyperlinkButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.HyperlinkButton._stateMouseOver">
+            <summary>
+            MouseOver state of the HyperlinkButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.HyperlinkButton._statePressed">
+            <summary>
+            Pressed state of the HyperlinkButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.HyperlinkButton._stateDisabled">
+            <summary>
+            Disabled state of the HyperlinkButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="M:System.Windows.Controls.HyperlinkButton.#ctor">
+            <summary>
+            Initializes a new instance of the HyperlinkButton class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.HyperlinkButton.OnApplyTemplate">
+            <summary>
+            Apply a template to the HyperlinkButton.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.HyperlinkButton.ChangeVisualState">
+            <summary>
+            Change to the correct visual state for the HyperlinkButton.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.HyperlinkButton.OnClick">
+            <summary>
+            Raises the Click routed event.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.HyperlinkButton.OnIsEnabledChanged(System.Boolean)">
+            <summary>
+            Called when the IsEnabled property changes.
+            </summary>
+            <param name="isEnabled">New value of the IsEnabled property.</param>
+        </member>
+        <member name="M:System.Windows.Controls.HyperlinkButton.GetAbsoluteUri">
+            <summary>
+            Get an absolute Uri corresponding to the NavigateUri.
+            </summary>
+            <returns>Absolute Uri corresponding to the NavigateUri.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.HyperlinkButton.Navigate">
+            <summary>
+            Navigate to the Uri.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.HyperlinkButton.NavigateUri">
+            <summary>
+            Gets or sets a URI to navigate to when the link is clicked.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.HyperlinkButton.TargetName">
+            <summary>
+            Gets or sets the name of a target window or frame.
+            </summary>
+        </member>
+        <member name="T:System.Windows.RoutedPropertyChangedEventArgs`1">
+            <summary>
+            Provides data about a change in value to a dependency property as
+            reported by particular routed events, including the previous and
+            current value of the property that changed.
+            </summary>
+            <typeparam name="T">
+            The type of the dependency property that has changed.
+            </typeparam>
+        </member>
+        <member name="M:System.Windows.RoutedPropertyChangedEventArgs`1.#ctor(`0,`0)">
+            <summary>
+            Initializes a new instance of the RoutedPropertyChangedEventArgs
+            class, with provided old and new values.
+            </summary>
+            <param name="oldValue">
+            Previous value of the property, prior to the event being raised.
+            </param>
+            <param name="newValue">
+            Current value of the property at the time of the event.
+            </param>
+        </member>
+        <member name="P:System.Windows.RoutedPropertyChangedEventArgs`1.OldValue">
+            <summary>
+            Gets the previous value of the property being tracked as reported by
+            an event.
+            </summary>
+        </member>
+        <member name="P:System.Windows.RoutedPropertyChangedEventArgs`1.NewValue">
+            <summary>
+            Gets the new value of the property being tracked as reported by an
+            event.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.CheckBox">
+            <summary>
+            Represents a control that a user can select and clear.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.Primitives.ToggleButton">
+            <summary>
+            Base class for controls that can switch states, such as CheckBox.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._ignoreIndeterminateStates">
+            <summary>
+            True to ignore indeterminate states when changing the visuals, false
+            to include them.
+            </summary>
+            <remarks>
+            This will be set true by RadioButton so it can make use of
+            ToggleButton's ChangeVisualState method.
+            </remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton.IsCheckedProperty">
+            <summary>
+            Identifies the IsChecked dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ToggleButton.OnIsCheckedPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            IsCheckedProperty property changed handler.
+            </summary>
+            <param name="d">ToggleButton that changed its IsChecked.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton.IsThreeStateProperty">
+            <summary>
+            Identifies the IsThreeState dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._elementRoot">
+            <summary>
+            Root template part of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._elementFocusVisual">
+            <summary>
+            Focus visual template part of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._elementContentFocusVisual">
+            <summary>
+            Content focus visual template part of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._stateChecked">
+            <summary>
+            Normal checked state of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._stateIndeterminate">
+            <summary>
+            Normal indeterminate state of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._stateNormal">
+            <summary>
+            Normal unchecked state of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._stateMouseOverChecked">
+            <summary>
+            MouseOver and checked state of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._stateMouseOverIndeterminate">
+            <summary>
+            MouseOver and indeterminate state of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._stateMouseOverUnchecked">
+            <summary>
+            MouseOver and unchecked state of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._statePressedChecked">
+            <summary>
+            Pressed and checked state of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._statePressedIndeterminate">
+            <summary>
+            Pressed and indeterminate state of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._statePressedUnchecked">
+            <summary>
+            Pressed and unchecked state of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._stateDisabledChecked">
+            <summary>
+            Disabled and checked state of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._stateDisabledIndeterminate">
+            <summary>
+            Disabled and indeterminate state of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ToggleButton._stateDisabledUnchecked">
+            <summary>
+            Disabled and unchecked state of the ToggleButton.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ToggleButton.#ctor">
+            <summary>
+            Initializes a new instance of the ToggleButton class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ToggleButton.OnApplyTemplate">
+            <summary>
+            Apply a template to the ToggleButton.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ToggleButton.ChangeVisualState">
+            <summary>
+            Change to the correct visual state for the ToggleButton.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ToggleButton.OnChecked(System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when a ToggleButton raises a Checked event.
+            </summary>
+            <param name="e">The event data for the Checked event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ToggleButton.OnIndeterminate(System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when a ToggleButton raises an Indeterminate event.
+            </summary>
+            <param name="e">The event data for the Indeterminate event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ToggleButton.OnUnchecked(System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when a ToggleButton raises an Unchecked event.
+            </summary>
+            <param name="e">The event data for the Unchecked event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ToggleButton.OnToggle">
+            <summary>
+            Move the button to its next IsChecked value.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ToggleButton.OnContentChanged(System.Object,System.Object)">
+            <summary>
+            Called when the Content property changes.
+            </summary>
+            <param name="oldContent">
+            The old value of the Content property.
+            </param>
+            <param name="newContent">
+            The new value of the Content property.
+            </param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ToggleButton.OnClick">
+            <summary>
+            Raises the Click routed event.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ToggleButton.OnIsEnabledChanged(System.Boolean)">
+            <summary>
+            Called when the IsEnabled property changes.
+            </summary>
+            <param name="isEnabled">New value of the IsEnabled property.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ToggleButton.ToString">
+            <summary>
+            Returns the string representation of a ToggleButton.
+            </summary>
+            <returns>String representation of a ToggleButton.</returns>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ToggleButton.IsChecked">
+            <summary>
+            Gets or sets whether the ToggleButton is checked.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ToggleButton.IsThreeState">
+            <summary>
+            Determines whether the control supports two or three states.
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.Primitives.ToggleButton.Checked">
+            <summary>
+            Occurs when a ToggleButton is checked.
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.Primitives.ToggleButton.Indeterminate">
+            <summary>
+            Occurs when the state of a ToggleButton is neither on nor off.
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.Primitives.ToggleButton.Unchecked">
+            <summary>
+            Occurs when a ToggleButton is unchecked.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.CheckBox.#ctor">
+            <summary>
+            Initializes a new instance of the CheckBox class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.CheckBox.OnKeyDownInternal(System.Windows.Input.Key)">
+            <summary>
+            Handles the KeyDown event for CheckBox.
+            </summary>
+            <param name="key">
+            The keyboard key associated with the event.
+            </param>
+            <returns>True if the event was handled, false otherwise.</returns>
+        </member>
+        <member name="T:System.Windows.Controls.ToolTipService">
+            <summary>
+                Service class that provides the system implementation for displaying ToolTips.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ToolTipService.BetweenShowDelayProperty">
+            <summary>
+                The DependencyProperty for the BetweenShowDelay property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ToolTipService.GetBetweenShowDelay(System.Windows.DependencyObject)">
+            <summary>
+                Gets the value of the BetweenShowDelay property.
+            </summary>
+            <param name="element">The object on which to query the property.</param>
+            <returns>The value of the property.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.ToolTipService.SetBetweenShowDelay(System.Windows.DependencyObject,System.Int32)">
+            <summary>
+                Sets the value of the BetweenShowDelay property.
+            </summary>
+            <param name="element">The object on which to set the value.</param>
+            <param name="value">The desired value of the property.</param>
+        </member>
+        <member name="F:System.Windows.Controls.ToolTipService.InitialShowDelayProperty">
+            <summary>
+                The DependencyProperty for the InitialShowDelay property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ToolTipService.GetInitialShowDelay(System.Windows.DependencyObject)">
+            <summary>
+                Gets the value of the InitialShowDelay property.
+            </summary>
+            <param name="element">The object on which to query the property.</param>
+            <returns>The value of the property.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.ToolTipService.SetInitialShowDelay(System.Windows.DependencyObject,System.Int32)">
+            <summary>
+                Sets the value of the InitialShowDelay property.
+            </summary>
+            <param name="element">The object on which to set the value.</param>
+            <param name="value">The desired value of the property.</param>
+        </member>
+        <member name="F:System.Windows.Controls.ToolTipService.ShowDurationProperty">
+            <summary>
+                The DependencyProperty for the ShowDuration property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ToolTipService.GetShowDuration(System.Windows.DependencyObject)">
+            <summary>
+                Gets the value of the ShowDuration property.
+            </summary>
+            <param name="element">The object on which to query the property.</param>
+            <returns>The value of the property.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.ToolTipService.SetShowDuration(System.Windows.DependencyObject,System.Int32)">
+            <summary>
+                Sets the value of the ShowDuration property.
+            </summary>
+            <param name="element">The object on which to set the value.</param>
+            <param name="value">The desired value of the property.</param>
+        </member>
+        <member name="F:System.Windows.Controls.ToolTipService.ToolTipProperty">
+            <summary>
+                The DependencyProperty for the ToolTip property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ToolTipService.GetToolTip(System.Windows.DependencyObject)">
+            <summary>
+                Gets the value of the ToolTip property on the specified object.
+            </summary>
+            <param name="element">The object on which to query the ToolTip property.</param>
+            <returns>The value of the ToolTip property.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.ToolTipService.SetToolTip(System.Windows.DependencyObject,System.Object)">
+            <summary>
+                Sets the ToolTip property on the specified object.
+            </summary>
+            <param name="element">The object on which to set the ToolTip property.</param>
+            <param name="value">
+                The value of the ToolTip property. If the value is of type ToolTip, then
+                that is the ToolTip that will be used (without any modification). If the value
+                is of any other type, then that value will be used as the content for a ToolTip
+                provided by this service, and the other attached properties of this service
+                will be used to configure the ToolTip.
+            </param>
+        </member>
+        <member name="P:System.Windows.Controls.ToolTipService.MousePosition">
+            <summary>
+            Place the ToolTip relative to this point
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ToolTipService.RootVisual">
+            <summary>
+            VisualRoot - the main page
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ToolTipService.CurrentToolTip">
+            <summary>
+            Access the toolTip which is currenly open by mouse movements
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.SelectionChangedEventArgs">
+            <summary>
+            Provides data for the SelectionChanged event.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.SelectionChangedEventArgs.#ctor(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Initializes a new instance of a SelectionChangedEventArgs class.
+            </summary>
+            <param name="removedItems">The items that were unselected during this event.</param>
+            <param name="addedItems">The items that were selected during this event.</param>
+        </member>
+        <member name="P:System.Windows.Controls.SelectionChangedEventArgs.AddedItems">
+            <summary>
+            Gets a list that contains the items that were selected during this event.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.SelectionChangedEventArgs.RemovedItems">
+            <summary>
+            Gets a list that contains the items that were unselected during this event.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.Button">
+            <summary>
+            Represents a button control, which reacts to the Click event.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Button._elementRoot">
+            <summary>
+            Root template part of the Button.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Button._elementFocusVisual">
+            <summary>
+            Focus visual template part of the Button.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Button._stateNormal">
+            <summary>
+            Normal state of the Button.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Button._stateMouseOver">
+            <summary>
+            MouseOver state of the Button.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Button._statePressed">
+            <summary>
+            Pressed state of the Button.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.Button._stateDisabled">
+            <summary>
+            Disabled state of the Button.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="M:System.Windows.Controls.Button.#ctor">
+            <summary>
+            Initializes a new instance of the Button class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Button.OnApplyTemplate">
+            <summary>
+            Apply a template to the Button.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Button.ChangeVisualState">
+            <summary>
+            Change to the correct visual state for the button.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Button.OnIsEnabledChanged(System.Boolean)">
+            <summary>
+            Called when the IsEnabled property changes.
+            </summary>
+            <param name="isEnabled">New value of the IsEnabled property.</param>
+        </member>
+        <member name="T:System.Windows.Controls.ScrollBarVisibility">
+            <summary>
+            Specifies the visibility of a ScrollBar for scrollable content.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollBarVisibility.Disabled">
+            <summary>
+            A ScrollBar does not appear even when the viewport cannot display all of the content. The dimension of the content is set to the corresponding dimension of the ScrollViewer parent. For a horizontal ScrollBar, the width of the content is set to the ViewportWidth of the ScrollViewer. For a vertical ScrollBar, the height of the content is set to the ViewportHeight of the ScrollViewer.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollBarVisibility.Auto">
+            <summary>
+            A ScrollBar appears and the dimension of the ScrollViewer is applied to the content when the viewport cannot display all of the content. For a horizontal ScrollBar, the width of the content is set to the ViewportWidth of the ScrollViewer. For a vertical ScrollBar, the height of the content is set to the ViewportHeight of the ScrollViewer.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollBarVisibility.Hidden">
+            <summary>
+            A ScrollBar does not appear even when the viewport cannot display all of the content. The dimension of the ScrollViewer is not applied to the content.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollBarVisibility.Visible">
+            <summary>
+            A ScrollBar always appears. The dimension of the ScrollViewer is applied to the content. For a horizontal ScrollBar, the width of the content is set to the ViewportWidth of the ScrollViewer. For a vertical ScrollBar, the height of the content is set to the ViewportHeight of the ScrollViewer.
+            </summary>
+        </member>
+        <member name="T:System.Windows.TextDecorationCollectionConverter">
+            <summary>
+            Converts instances of the String type to TextDecorationCollection
+            instances.
+            </summary>
+        </member>
+        <member name="F:System.Windows.TextDecorationCollectionConverter.KnownValues">
+            <summary>
+            TextDecorationCollection known values.
+            </summary>
+        </member>
+        <member name="M:System.Windows.TextDecorationCollectionConverter.#ctor">
+            <summary>
+            Initializes a new instance of the TextDecorationCollectionConverter
+            class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.TextDecorationCollectionConverter.CanConvertFrom(System.Type)">
+            <summary>
+            Returns a value that indicates whether this converter can convert an
+            object of the given type to an instance of TextDecorationCollection.
+            </summary>
+            <param name="sourceType">
+            The type of the source that is being evaluated for conversion.
+            </param>
+            <returns>
+            true if the converter can convert the provided type to an instance
+            of TextDecorationCollection; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:System.Windows.TextDecorationCollectionConverter.ConvertFrom(System.Object)">
+            <summary>
+            Attempts to convert a specified object to an instance of
+            TextDecorationCollection.
+            </summary>
+            <param name="value">The object being converted.</param>
+            <returns>
+            The instance of TextDecorationCollection created from the converted
+            object.
+            </returns>
+        </member>
+        <member name="M:System.Windows.TextDecorationCollectionConverter.ConvertFromString(System.String)">
+            <summary>
+            Attempts to convert a specified String to an instance of
+            TextDecorationCollection.
+            </summary>
+            <param name="text">
+            The String to be converted into the TextDecorationCollection object.
+            </param>
+            <returns>
+            The instance of TextDecorationCollection created from the converted
+            text.
+            </returns>
+        </member>
+        <member name="T:System.Windows.DragCompletedEventArgs">
+            <summary>
+            Provides information about the DragCompleted event that occurs when a
+            user completes a drag operation with the mouse of a Thumb control.
+            </summary>
+        </member>
+        <member name="T:System.Windows.DragEventArgs">
+            <summary>
+            Provides information about the DragStarted and DragDelta events that
+            occur when a user drags a Thumb control with the mouse.
+            </summary>
+        </member>
+        <member name="M:System.Windows.DragEventArgs.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the DragStartedEventArgs class.
+            </summary>
+            <param name="horizontalOffset">
+            The horizontal offset of the mouse click with respect to the screen
+            coordinates of the Thumb.
+            </param>
+            <param name="verticalOffset">
+            The vertical offset of the mouse click with respect to the screen
+            coordinates of the Thumb.
+            </param>
+        </member>
+        <member name="P:System.Windows.DragEventArgs.HorizontalOffset">
+            <summary>
+            Gets the horizontal offset of the mouse click relative to the screen
+            coordinates of the Thumb.
+            </summary>
+        </member>
+        <member name="P:System.Windows.DragEventArgs.VerticalOffset">
+            <summary>
+            Gets the vertical offset of the mouse click relative to the screen
+            coordinates of the Thumb.
+            </summary>
+        </member>
+        <member name="M:System.Windows.DragCompletedEventArgs.#ctor(System.Double,System.Double,System.Boolean)">
+            <summary>
+            Initializes a new instance of the DragCompletedEventArgs class.
+            </summary>
+            <param name="horizontalChange">
+            The horizontal offset of the mouse click with respect to the screen
+            coordinates of the Thumb.
+            </param>
+            <param name="verticalChange">
+            The vertical offset of the mouse click with respect to the screen
+            coordinates of the Thumb.
+            </param>
+            <param name="canceled">
+            A Boolean value that indicates whether the drag operation was
+            canceled by a call to the CancelDrag method.
+            </param>
+        </member>
+        <member name="P:System.Windows.DragCompletedEventArgs.Canceled">
+            <summary>
+            Gets whether the drag operation for a Thumb was canceled by a call
+            to the CancelDrag method.
+            </summary>
+        </member>
+        <member name="T:System.Windows.DragCompletedEventHandler">
+            <summary>
+            Represents the methods that handle the DragEventCompleted event.
+            </summary>
+            <param name="sender">The current element along the event's route.</param>
+            <param name="e">The event arguments containing additional information about the DragEventCompleted event.</param>
+        </member>
+        <member name="T:System.Windows.Controls.ListBox">
+            <summary>
+            Control that implements a list of selectable items.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ListBox.SelectedIndexProperty">
+            <summary>
+            Identifies the SelectedIndex dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ListBox.SelectedItemProperty">
+            <summary>
+            Identifies the SelectedItem dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ListBox.SelectedItemsProperty">
+            <summary>
+            Identifies the SelectedItems dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ListBox.SelectionModeProperty">
+            <summary>
+            Identifies the SelectionMode dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ListBox.ItemContainerStyleProperty">
+            <summary>
+            Identifies the ItemContainerStyle dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ListBox.IsSelectionActiveProperty">
+            <summary>
+            Identifies the IsSelectionActive dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ListBox._processingSelectionPropertyChange">
+            <summary>
+            Set to true iff the ProcessingSelectionPropertyChange method is executing (to prevent recursion)
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ListBox._readOnlyDependencyPropertyChangesAllowed">
+            <summary>
+            Tracks whether changes to read-only DependencyProperties are allowed.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ListBox._listBoxItemOldFocus">
+            <summary>
+            Tracks the ListBoxItem that just lost focus.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ListBox._tabOnceActiveElement">
+            <summary>
+            Tracks the ListBoxItem that should get focus when the ListBox gets focus
+            </summary>
+            <remarks>
+            Helps implement WPF's KeyboardNavigation.SetTabOnceActiveElement
+            which is not present in Silverlight.
+            </remarks>
+        </member>
+        <member name="F:System.Windows.Controls.ListBox._suppressNextLostFocus">
+            <summary>
+            Tracks whether to suppress the next "lost focus" event because it was self-caused.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ListBox._focusedIndex">
+            <summary>
+            Tracks the index of the focused element.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.GetIsSelectionActive(System.Windows.DependencyObject)">
+            <summary>
+            Gets a value that indicates whether the keyboard focus is within the ListBox.
+            </summary>
+            <param name="element">The element from which to read the attached property.</param>
+            <returns>Value of the property, true if the keyboard focus is within the Selector.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.SetIsSelectionActive(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Sets a value that indicates whether the keyboard focus is within the ListBox.
+            </summary>
+            <param name="element">The element on which to set the attached property.</param>
+            <param name="value">The value to set.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.#ctor">
+            <summary>
+            Initializes a new instance of the ListBox class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnApplyTemplate">
+            <summary>
+            Invoked whenever application code or internal processes call
+            ApplyTemplate.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.IsItemItsOwnContainerOverride(System.Object)">
+            <summary>
+            Determines if the specified item is (or is eligible to be) its own container.
+            </summary>
+            <param name="item">The item to check.</param>
+            <returns>Returns true if the item is (or is eligible to be) its own container; otherwise, false.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.GetContainerForItemOverride">
+            <summary>
+            Creates or identifies the element that is used to display the given item.
+            </summary>
+            <returns>The element that is used to display the given item.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.PrepareContainerForItemOverride(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            Prepares the specified element to display the specified item.
+            </summary>
+            <param name="element">Element used to display the specified item.</param>
+            <param name="item">Specified item.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.ClearContainerForItemOverride(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            Undoes the effects of PrepareContainerForItemOverride.
+            </summary>
+            <param name="element">The container element.</param>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnGotFocus(System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when the control got focus.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnLostFocus(System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when the control lost focus.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.SetSelectedItem(System.Object)">
+            <summary>
+            Selects the specified item in response to user input.
+            </summary>
+            <param name="item">Item from the Items collection.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.ScrollIntoView(System.Object)">
+            <summary>
+            Causes the object to scroll into view.
+            </summary>
+            <param name="item">Object to scroll.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.NotifyListItemClicked(System.Windows.Controls.ListBoxItem)">
+            <summary>
+            Called by ListBoxItem instances when they are clicked.
+            </summary>
+            <param name="listBoxItem">The ListBoxItem.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.NotifyListItemGotFocus(System.Windows.Controls.ListBoxItem)">
+            <summary>
+            Called by ListBoxItem instances when they get focus
+            </summary>
+            <param name="listBoxItemNewFocus">ListBoxItem that got focus</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.NotifyListItemLostFocus(System.Windows.Controls.ListBoxItem)">
+            <summary>
+            Called by ListBoxItem instances when they lose focus
+            </summary>
+            <param name="listBoxItemOldFocus">ListBoxItem that lost focus</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnSelectionChanged(System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            Responds to a list box selection change by raising a SelectionChanged event.
+            </summary>
+            <param name="e">Provides data for SelectionChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnKeyDown(System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Responds to the KeyDown event.
+            </summary>
+            <param name="e">Provides data for KeyEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.ElementScrollViewerScrollInDirection(System.Windows.Input.Key)">
+            <summary>
+            Call ElementScrollViewer.ScrollInDirection if possible.
+            </summary>
+            <param name="key">Key corresponding to the direction.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnSelectedItemsCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Responds to the CollectionChanged event for SelectedItems
+            </summary>
+            <param name="sender">Source of the event.</param>
+            <param name="e">Provides data for NotifyCollectionChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnSelectedIndexChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Implements the SelectedIndexProperty PropertyChangedCallback.
+            </summary>
+            <param name="d">The DependencyObject for which the property changed.</param>
+            <param name="e">Provides data for DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnSelectedIndexChanged(System.Int32,System.Int32)">
+            <summary>
+            Called when the SelectedIndex property has changed.
+            </summary>
+            <param name="oldValue">The value of the property before the change.</param>
+            <param name="newValue">The value of the property after the change.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnSelectedItemChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Implements the SelectedItemProperty PropertyChangedCallback.
+            </summary>
+            <param name="d">The DependencyObject for which the property changed.</param>
+            <param name="e">Provides data for DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnSelectedItemChanged(System.Object,System.Object)">
+            <summary>
+            Called when the SelectedItem property has changed.
+            </summary>
+            <param name="oldValue">The value of the property before the change.</param>
+            <param name="newValue">The value of the property after the change.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnSelectedItemsChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Implements the SelectedItemsProperty PropertyChangedCallback.
+            </summary>
+            <param name="d">The DependencyObject for which the property changed.</param>
+            <param name="e">Provides data for DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.ProcessSelectionPropertyChange(System.Windows.DependencyProperty,System.Object,System.Object)">
+            <summary>
+            Perform the actions necessary to handle a selection property change.
+            </summary>
+            <param name="changedProperty">Selection property that changed.</param>
+            <param name="oldValue">Old value of the property.</param>
+            <param name="newValue">New value of the property.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnSelectedItemsChanged(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Called when the SelectedItems property has changed.
+            </summary>
+            <param name="oldValue">The value of the property before the change.</param>
+            <param name="newValue">The value of the property after the change.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnSelectionModeChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Implements the SelectionModeProperty PropertyChangedCallback.
+            </summary>
+            <param name="d">The DependencyObject for which the property changed.</param>
+            <param name="e">Provides data for DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnSelectionModeChanged(System.Windows.Controls.SelectionMode,System.Windows.Controls.SelectionMode)">
+            <summary>
+            Called when the SelectionMode property has changed.
+            </summary>
+            <param name="oldValue">The value of the property before the change.</param>
+            <param name="newValue">The value of the property after the change.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnItemContainerStyleChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Implements the ItemContainerStyleProperty PropertyChangedCallback.
+            </summary>
+            <param name="d">The DependencyObject for which the property changed.</param>
+            <param name="e">Provides data for DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnItemContainerStyleChanged(System.Windows.Style,System.Windows.Style)">
+            <summary>
+            Called when the ItemContainerStyle property has changed.
+            </summary>
+            <param name="oldItemContainerStyle">The value of the property before the change.</param>
+            <param name="newItemContainerStyle">The value of the property after the change.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnIsSelectionActiveChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Implements the IsSelectionActive PropertyChangedCallback.
+            </summary>
+            <param name="d">The DependencyObject for which the property changed.</param>
+            <param name="e">Provides data for DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.OnIsSelectionActiveChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Called when the IsSelectionActive property has changed.
+            </summary>
+            <param name="oldValue">The value of the property before the change.</param>
+            <param name="newValue">The value of the property after the change.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.GetListBoxItemForObject(System.Object)">
+            <summary>
+            Gets the ListBoxItem corresponding to the specified item.
+            </summary>
+            <param name="value">The item being looked up.</param>
+            <returns>Corresponding ListBoxItem.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.IsVerticalOrientation">
+            <summary>
+            Indicate whether the orientation of the ListBox's items is vertical.
+            </summary>
+            <returns>True if the orientation is vertical; false otherwise.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.IsOnCurrentPage(System.Object)">
+            <summary>
+            Indicate whether the specified item is currently visible.
+            </summary>
+            <param name="item">The item.</param>
+            <returns>True if the item is visible; false otherwise.</returns>
+            <remarks>Similar to WPF's corresponding ItemsControl method.</remarks>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.IsOnCurrentPage(System.Object,System.Windows.Rect@,System.Windows.Rect@)">
+            <summary>
+            Indicate whether the specified item is currently visible.
+            </summary>
+            <param name="item">The item.</param>
+            <param name="itemsHostRect">Rect for the item host element.</param>
+            <param name="listBoxItemRect">Rect for the ListBoxItem element.</param>
+            <returns>True if the item is visible; false otherwise.</returns>
+            <remarks>Similar to WPF's corresponding ItemsControl method.</remarks>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.GetFirstItemOnCurrentPage(System.Int32,System.Boolean)">
+            <summary>
+            Get the first visible item.
+            </summary>
+            <param name="startingIndex">Starting index to search from.</param>
+            <param name="forward">Search forward if true; backward otherwise.</param>
+            <returns>Index of first visible item.</returns>
+            <remarks>Similar to WPF's corresponding ItemsControl method.</remarks>
+        </member>
+        <member name="M:System.Windows.Controls.ListBox.NavigateByPage(System.Boolean)">
+            <summary>
+            Move the focus forward/backward one page.
+            </summary>
+            <param name="forward">Forward if true; backward otherwise</param>
+            <returns>New focused index.</returns>
+            <remarks>Similar to WPF's corresponding ItemsControl method.</remarks>
+        </member>
+        <member name="P:System.Windows.Controls.ListBox.SelectedIndex">
+            <summary>
+            Gets or sets the index of the first item in the current selection
+            or returns negative one (-1) if the selection is empty.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBox.SelectedItem">
+            <summary>
+            Gets or sets the first item in the current selection or returns
+            null if the selection is empty.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBox.SelectedItems">
+            <summary>
+            Gets the currently selected items.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBox.SelectionMode">
+            <summary>
+            Gets the selection behavior for a ListBox.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBox.ItemContainerStyle">
+            <summary>
+            Gets or sets the Style that is applied to the container element generated for each item.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBox.ElementScrollViewer">
+            <summary>
+            Identifies the optional ScrollViewer element from the template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBox.ObjectToListBoxItem">
+            <summary>
+            Maps objects in the Items collection to the corresponding
+            ListBoxItem containers
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.ListBox.SelectionChanged">
+            <summary>
+            Occurs when the selection of a ListBox changes.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.Primitives.Thumb">
+            <summary>
+            Initializes a new instance of the Thumb class.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.Thumb.IsDraggingProperty">
+            <summary>
+            Identifies the IsDragging dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.OnIsDraggingPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            IsDraggingProperty property changed handler.
+            </summary>
+            <param name="d">RangeBase that changed IsDragging.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.OnDraggingChanged">
+            <summary>
+            This method is invoked when the IsDragging property changes.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.Thumb.IsEnabledProperty">
+            <summary>
+            Identifies the IsEnabled dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.OnIsEnabledPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            IsEnabledProperty property changed handler.
+            </summary>
+            <param name="d">Slider that changed IsEnabled.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.OnIsEnabledChanged">
+            <summary>
+            Called when the IsEnabled property changes.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.#ctor">
+            <summary>
+            Initializes a new instance of the Thumb class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.OnApplyTemplate">
+            <summary>
+            Apply a template to the thumb.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handle the MouseLeftButtonDown event.
+            </summary>
+            <param name="e">MouseButtonEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.OnMouseLeftButtonUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handle the MouseLeftButtonUp event.
+            </summary>
+            <param name="e">MouseButtonEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.OnMouseEnter(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handle the MouseEnter event.
+            </summary>
+            <param name="e">MouseEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.OnMouseLeave(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handle the MouseLeave event.
+            </summary>
+            <param name="e">MouseEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.OnMouseMove(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handle the MouseMove event.
+            </summary>
+            <param name="e">MouseEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.UpdateVisualState">
+            <summary>
+            Change to the correct visual state for the thumb.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.ChangeVisualState(System.Windows.Media.Animation.Storyboard)">
+            <summary>
+            Change the visual state of the thumb.
+            </summary>
+            <param name="state">Next visual state of the thumb.</param>
+            <remarks>
+            This method should not be called by controls to force a change to
+            the current visual state.  UpdateVisualState is preferred because
+            it properly handles suspension of state changes.
+            </remarks>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.CancelDrag">
+            <summary>
+            Cancel a drag operation if it is currently in progress.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.Thumb.RaiseDragCompleted(System.Boolean)">
+            <summary>
+            Raise the DragCompleted event.
+            </summary>
+            <param name="canceled">
+            A Boolean value that indicates whether the drag operation was
+            canceled by a call to the CancelDrag method.
+            </param>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.Thumb._origin">
+            <summary>
+            Origin of the thumb's drag operation.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.Thumb._previousPosition">
+            <summary>
+            Last position of the thumb while during a drag operation.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.Thumb._currentState">
+            <summary>
+            Current state of the control
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.Thumb.IsDragging">
+            <summary>
+            Gets whether the Thumb control has logical focus and mouse capture
+            and the left mouse button is pressed.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.Thumb.IsEnabled">
+            <summary>
+            Gets or sets a value that indicates whether this element is enabled
+            in the user interface (UI).
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.Primitives.Thumb.DragStarted">
+            <summary>
+            Identifies the DragStarted routed event.
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.Primitives.Thumb.DragDelta">
+            <summary>
+            Identifies the DragDelta routed event.
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.Primitives.Thumb.DragCompleted">
+            <summary>
+            Occurs when the Thumb control loses mouse capture.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.Thumb.ElementRoot">
+            <summary>
+            Root of the thumb template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.Thumb.StateNormal">
+            <summary>
+            Transition into the normal state in the thumb template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.Thumb.StateMouseOver">
+            <summary>
+            Transition into the MouseOver state in the thumb template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.Thumb.StatePressed">
+            <summary>
+            Transition into the Pressed state in the thumb template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.Thumb.StateDisabled">
+            <summary>
+            Transition into the Disabled state in the thumb template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.Thumb.IsMouseOver">
+            <summary>
+            Whether the mouse is currently over the control
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.ScrollContentPresenter">
+            <summary>
+            Displays the content of a ScrollViewer control.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.ContentPresenter">
+            <summary>
+            Displays the content of a ContentControl.
+            </summary>
+            <remarks>
+            Typically, you the ContentPresenter directly within the ControlTemplate
+            of a ContentControl to mark where the content should be displayed. 
+            Every type derived from ContentControl should have a ContentPrenter in
+            its ControlTemplate (although it may not necessarily be a TemplatePart).
+            The ContentPresenter in the ControlTemplate should use a TemplateBinding
+            to associate ContentControl.Content with ContentPresenter.Content (and
+            an other relevant properties like FontSize, VeriticalAlignment, etc.).
+            </remarks>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter.ContentPresenterDefaultTemplate">
+            <summary>
+            XAML markup used to define the write-once ContentPresenter template.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter._elementRoot">
+            <summary>
+            Root element of the panel that will contain the visual content.
+            </summary>
+            <remarks>
+            Since a Control cannot change its content (i.e. it may only call
+            InitializeFromXaml once to set its root), every ContentPresetner
+            will create a container as its root element regardless of the
+            content that will be stuffed into it.  It's also worth noting that
+            there is no TemplatePartAttribute because the Template is write-once
+            and cannot be changed by users.  This field is marked internal for
+            unit testing.
+            </remarks>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter._elementContent">
+            <summary>
+            Visual representation of the Content currently being displayed.
+            </summary>
+            <remarks>This field is marked internal for unit testing.</remarks>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter._elementText">
+            <summary>
+            Visual representation of any text Content currently being displayed.
+            </summary>
+            <remarks>
+            The _elementText property is necessary in addition to the
+            _elementContent property because of all of all the font related
+            properties whose values need to be propogated into it by the
+            ContentPresenter.  This field is marked internal for unit testing.
+            </remarks>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter._alreadyAppliedTemplate">
+            <summary>
+            True if the template has already been applied, false otherwise.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter.ContentProperty">
+            <summary>
+            Identifies the Content dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ContentPresenter.OnContentPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            ContentProperty property changed handler.
+            </summary>
+            <param name="d">ContentPresenter that changed its Content.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter.ContentTemplateProperty">
+            <summary>
+            Identifies the ContentTemplate dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ContentPresenter.OnContentTemplatePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            ContentTemplateProperty property changed handler.
+            </summary>
+            <param name="d">ContentPresenter that changed its ContentTemplate.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter.BackgroundProperty">
+            <summary>
+            Identifies the Background dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter.FontFamilyProperty">
+            <summary>
+            Identifies the FontFamily dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter.FontSizeProperty">
+            <summary>
+            Identifies the FontSize dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter.FontStretchProperty">
+            <summary>
+            Identifies the FontStretch dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter.FontStyleProperty">
+            <summary>
+            Identifies the FontStyle dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter.FontWeightProperty">
+            <summary>
+            Identifies the FontWeight dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter.ForegroundProperty">
+            <summary>
+            Identifies the Foreground dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter.TextAlignmentProperty">
+            <summary>
+            Identifies the TextAlignment dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter.TextDecorationsProperty">
+            <summary>
+            Identifies the TextDecorations dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ContentPresenter.TextWrappingProperty">
+            <summary>
+            Identifies the TextWrapping dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ContentPresenter.#ctor">
+            <summary>
+            Initializes a new instance of the ContentPresenter class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ContentPresenter.OnApplyTemplate">
+            <summary>
+            Apply the default Template to ContentPresenter.  This is only
+            allowed to happen one time.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ContentPresenter.PrepareContentPresenter">
+            <summary>
+            Update the ContentPresenter's logical tree with the appropriate
+            visual elements when its Content is changed.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ContentPresenter.GetVisualChild(System.Int32)">
+            <summary>
+            Returns the specified contentPresenter element.
+            </summary>
+            <param name="index">The index of the desired contentPresenter.</param>
+            <returns>The contentPresenter element at the specified index value.</returns>
+        </member>
+        <member name="P:System.Windows.Controls.ContentPresenter.Content">
+            <summary>
+            Gets or sets the data used to generate the contentPresenter elements of a
+            ContentPresenter.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentPresenter.ContentTemplate">
+            <summary>
+            Gets or sets the data template used to display the content of the
+            ContentPresenter.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentPresenter.Background">
+            <summary>
+            Gets or sets a brush that describes the value color.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentPresenter.FontFamily">
+            <summary>
+            Gets or sets the name of the specified font.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentPresenter.FontSize">
+            <summary>
+            Gets or sets the font size.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentPresenter.FontStretch">
+            <summary>
+            Gets or sets the degree to which a font is condensed or expanded on
+            the screen.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentPresenter.FontStyle">
+            <summary>
+            Gets or sets the font style.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentPresenter.FontWeight">
+            <summary>
+            Gets or sets the weight or thickness of the specified font.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentPresenter.Foreground">
+            <summary>
+            Gets or sets a brush that describes the value color.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentPresenter.TextAlignment">
+            <summary>
+            Gets or sets a value that indicates the horizontal alignment of text
+            content.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentPresenter.TextDecorations">
+            <summary>
+            Gets or sets a TextDecorationCollection that contains the effects to
+            apply to the Content text.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ContentPresenter.TextWrapping">
+            <summary>
+            Gets or sets a value that indicates how the TextBlock should wrap
+            text.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollContentPresenter._clippingRectangle">
+            <summary>
+            Clipping rectangle used to replace WPF's GetLayoutClip virtual
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollContentPresenter.#ctor">
+            <summary>
+            Initializes a new instance of the ScrollContentPresenter class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollContentPresenter.MeasureOverride(System.Windows.Size)">
+            <summary>
+            Called to remeasure a control.
+            </summary>
+            <param name="availableSize">Measurement constraints, a control cannot return a size larger than the constraint.</param>
+            <returns>The size of the control.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollContentPresenter.ArrangeOverride(System.Windows.Size)">
+            <summary>
+            Called to arrange and size the content of a Control object.
+            </summary>
+            <param name="finalSize">The computed size that is used to arrange the content.</param>
+            <returns>The size of the control.</returns>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollContentPresenter.ViewerParent">
+            <summary>
+            Reference to the ScrollViewer parent control.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollContentPresenter.HorizontalOffset">
+            <summary>
+            Gets the horizontal offset of the scrolled content.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollContentPresenter.VerticalOffset">
+            <summary>
+            Gets the vertical offset of the scrolled content.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollContentPresenter.ExtentWidth">
+            <summary>
+            Gets the horizontal size of the extent.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollContentPresenter.ExtentHeight">
+            <summary>
+            Gets the vertical size of the extent.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollContentPresenter.ViewportWidth">
+            <summary>
+            Gets the horizontal size of the viewport for this content.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollContentPresenter.ViewportHeight">
+            <summary>
+            Gets the vertical size of the viewport for this content.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.TypeConverters">
+            <summary>
+            Common TypeConverter functionality.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.TypeConverters.CanConvertFrom``1(System.Type)">
+            <summary>
+            Returns a value that indicates whether this converter can convert an
+            object of the given type to an instance of the expected type.
+            </summary>
+            <typeparam name="T">Expected type of the converter.</typeparam>
+            <param name="sourceType">
+            The type of the source that is being evaluated for conversion.
+            </param>
+            <returns>
+            true if the converter can convert the provided type to an instance
+            of a String or the expected type; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:System.Windows.Controls.TypeConverters.ConvertFrom``1(System.ComponentModel.TypeConverter,System.Object)">
+            <summary>
+            Attempts to convert a specified object to an instance of the
+            expected type.
+            </summary>
+            <typeparam name="T">Expected type of the converter.</typeparam>
+            <param name="converter">TypeConverter instance.</param>
+            <param name="value">The object being converted.</param>
+            <returns>
+            The instance of the expected type created from the converted object.
+            </returns>
+        </member>
+        <member name="M:System.Windows.Controls.TypeConverters.ConvertFromString``1(System.String,System.Collections.Generic.IDictionary{System.String,``0})">
+            <summary>
+            Attempts to convert the specified text to an instance of the
+            expected type.
+            </summary>
+            <typeparam name="T">Expected type of the converter.</typeparam>
+            <param name="text">The text being converted.</param>
+            <param name="knownValues">
+            Dictionary mapping known names to values.
+            </param>
+            <returns>
+            The instance of the expected type created from the converted text.
+            </returns>
+        </member>
+        <member name="T:System.Windows.Controls.ScrollEventType">
+            <summary>
+            Specifies the type of action used to raise the Scroll event. 
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollEventType.EndScroll">
+            <summary>
+            The Thumb was dragged to a new position and is now no longer being dragged by the user.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollEventType.First">
+            <summary>
+            The Thumb moved to the Minimum position of the ScrollBar. For a vertical ScrollBar, this movement occurs when the CTRL+HOME keys are pressed. This movement corresponds to a ScrollToTopCommand in a vertical ScrollBar and a ScrollToLeftEndCommand in a horizontal ScrollBar.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollEventType.LargeDecrement">
+            <summary>
+            The Thumb moved a specified distance, as determined by the value of LargeChange, to the left for a horizontal ScrollBar or upward for a vertical ScrollBar. For a vertical ScrollBar, this movement occurs when the page button that is above the Thumb is pressed, or when the PAGE UP key is pressed, and corresponds to a PageUpCommand. For a horizontal ScrollBar, this movement occurs when the page button to the left of the Thumb is pressed, and corresponds to a PageLeftCommand.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollEventType.LargeIncrement">
+            <summary>
+            The Thumb moved a specified distance, as determined by the value of LargeChange, to the right for a horizontal ScrollBar or downward for a vertical ScrollBar. For a vertical ScrollBar, this movement occurs when the page button that is below the Thumb is pressed, or when the PAGE DOWN key is pressed, and corresponds to a PageDownCommand. For a horizontal ScrollBar, this movement occurs when the page button to the right of the Thumb is pressed, and corresponds to a PageRightCommand.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollEventType.Last">
+            <summary>
+            The Thumb moved to the Maximum position of the ScrollBar. For a vertical ScrollBar, this movement occurs when the CTRL+END keys are pressed. This movement corresponds to a ScrollToEndCommand in a vertical ScrollBar and a ScrollToRightEndCommand in a horizontal ScrollBar.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollEventType.SmallDecrement">
+            <summary>
+            The Thumb moved a small distance, as determined by the value of SmallChange, to the left for a horizontal ScrollBar or upward for a vertical ScrollBar. For a vertical ScrollBar, this movement occurs when the upper RepeatButton is pressed or when the UP ARROW key is pressed, and corresponds to a LineUpCommand. For a horizontal ScrollBar, this movement occurs when the left RepeatButton is pressed, and corresponds to a LineLeftCommand.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollEventType.SmallIncrement">
+            <summary>
+            The Thumb moved a small distance, as determined by the value of SmallChange, to the right for a horizontal ScrollBar or downward for a vertical ScrollBar. For a vertical ScrollBar, this movement occurs when the lower RepeatButton is pressed or when the DOWN ARROW key is pressed, and corresponds to a LineDownCommand. For a horizontal ScrollBar, this movement occurs when the right RepeatButton is pressed, and corresponds to a LineRightCommand.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollEventType.ThumbPosition">
+            <summary>
+            The Thumb moved to a new position because the user selected Scroll Here in the shortcut menu of the ScrollBar. This movement corresponds to the ScrollHereCommand. To view the shortcut menu, right-click the mouse when the pointer is over the ScrollBar.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollEventType.ThumbTrack">
+            <summary>
+            The Thumb was dragged and caused a MouseMove event. A Scroll event of this ScrollEventType may occur more than one time when the Thumb is dragged in the ScrollBar.
+            </summary>
+        </member>
+        <member name="T:System.Windows.FontStretchConverter">
+            <summary>
+            Converts instances of the String type to FontStretch instances.
+            </summary>
+        </member>
+        <member name="F:System.Windows.FontStretchConverter.KnownValues">
+            <summary>
+            FontStretch known values.
+            </summary>
+        </member>
+        <member name="M:System.Windows.FontStretchConverter.#ctor">
+            <summary>
+            Initializes a new instance of the FontStretchConverter class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.FontStretchConverter.CanConvertFrom(System.Type)">
+            <summary>
+            Returns a value that indicates whether this converter can convert an
+            object of the given type to an instance of FontStretch.
+            </summary>
+            <param name="sourceType">
+            The type of the source that is being evaluated for conversion.
+            </param>
+            <returns>
+            true if the converter can convert the provided type to an instance
+            of FontStretch; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:System.Windows.FontStretchConverter.ConvertFrom(System.Object)">
+            <summary>
+            Attempts to convert a specified object to an instance of 
+            FontStretch.
+            </summary>
+            <param name="value">The object being converted.</param>
+            <returns>
+            The instance of FontStretch created from the converted object.
+            </returns>
+        </member>
+        <member name="M:System.Windows.FontStretchConverter.ConvertFromString(System.String)">
+            <summary>
+            Attempts to convert a specified String to an instance of
+            FontStretch.
+            </summary>
+            <param name="text">
+            The String to be converted into the FontStretch object.
+            </param>
+            <returns>
+            The instance of FontStretch created from the converted text.
+            </returns>
+        </member>
+        <member name="T:System.Windows.DragDeltaEventArgs">
+            <summary>
+            Provides information about the DragCompleted event that occurs when a
+            user completes a drag operation with the mouse of a Thumb control.
+            </summary>
+        </member>
+        <member name="M:System.Windows.DragDeltaEventArgs.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the DragCompletedEventArgs class.
+            </summary>
+            <param name="horizontalChange">
+            The horizontal offset of the mouse click with respect to the screen
+            coordinates of the Thumb.
+            </param>
+            <param name="verticalChange">
+            The vertical offset of the mouse click with respect to the screen
+            coordinates of the Thumb.
+            </param>
+        </member>
+        <member name="T:System.Windows.DragDeltaEventHandler">
+            <summary>
+            Represents the methods that handle the DragDelta event.
+            </summary>
+            <param name="sender">The current element along the event's route.</param>
+            <param name="e">The event arguments containing additional information about the DragDelta event.</param>
+        </member>
+        <member name="T:System.Windows.Controls.Primitives.RepeatButton">
+            <summary>
+            Control that raises its Click event repeatedly from the time it is
+            pressed until it is released.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.RepeatButton.DelayProperty">
+            <summary>
+            Identifies the Delay dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.RepeatButton.OnDelayPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            DelayProperty property changed handler.
+            </summary>
+            <param name="d">RepeatButton that changed its Delay.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.RepeatButton.IntervalProperty">
+            <summary>
+            Identifies the Interval dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.RepeatButton.OnIntervalPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            IntervalProperty property changed handler.
+            </summary>
+            <param name="d">RepeatButton that changed its Interval.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.RepeatButton._timer">
+            <summary>
+            Timer listening for the button to repeat.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.RepeatButton.StartTimer">
+            <summary>
+            Start the timer.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.RepeatButton.StopTimer">
+            <summary>
+            Stop the timer.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.RepeatButton.OnTimeout(System.Object,System.EventArgs)">
+            <summary>
+            Handler timer ticks.
+            </summary>
+            <param name="sender">Timer.</param>
+            <param name="e">EventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.RepeatButton.#ctor">
+            <summary>
+            Initializes a new instance of the RepeatButton class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.RepeatButton.OnApplyTemplate">
+            <summary>
+            Apply a template to the RepeatButton.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.RepeatButton.ChangeVisualState">
+            <summary>
+            Change to the correct visual state for the repeatbutton.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.RepeatButton.OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Overriding the handler for the MouseLeftButtonDown event.
+            </summary>
+            <param name="e">MouseButtonEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.RepeatButton.OnMouseLeftButtonUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Overriding the handler for the MouseLeftButtonUp event.
+            </summary>
+            <param name="e">MouseButtonEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.RepeatButton.OnMouseEnter(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Overriding the handler for the MouseEnter event.
+            </summary>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.RepeatButton.OnMouseLeave(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Overriding the handler for the MouseLeave event.
+            </summary>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.RepeatButton.OnMouseMove(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Overriding the handler for the MouseMove event.
+            </summary>
+            <param name="e"></param>
+            <remarks>
+            The reason I am overriding this function without calling
+            base.OnMouseMove is that the ButtonBase class sometimes 
+            sets IsPressed to false based on mouse position. This 
+            interferes with the RepeatButton functionality.
+            </remarks>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.RepeatButton.Delay">
+            <summary>
+            Gets or sets the amount of time, in milliseconds, the RepeatButton
+            waits while it is pressed before it starts repeating. The value must
+            be non-negative. 
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.RepeatButton.Interval">
+            <summary>
+            Gets or sets the amount of time, in milliseconds, between repeats
+            once repeating starts. The value must be non-negative.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.RepeatButton.ElementRoot">
+            <summary>
+            Root of the RepeatButton template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.RepeatButton.ElementFocusVisual">
+            <summary>
+            Focus indicator of the RepeatButton template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.RepeatButton.StateNormal">
+            <summary>
+            Transition into the Normal state in the RepeatButton template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.RepeatButton.StateMouseOver">
+            <summary>
+            Transition into the MouseOver state in the RepeatButton template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.RepeatButton.StatePressed">
+            <summary>
+            Transition into the Pressed state in the RepeatButton template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.RepeatButton.StateDisabled">
+            <summary>
+            Transition into the Disabled state in the RepeatButton template.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.ClickMode">
+            <summary>
+            Specifies when the ButtonBase.Click event should fire.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ClickMode.Release">
+            <summary>
+            Specifies that the Click event will occur when a button is pressed
+            and released.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ClickMode.Press">
+            <summary>
+            Specifies that the Click event will occur as soon as a button is
+            pressed.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ClickMode.Hover">
+            <summary>
+            Specifies that the Click event should fire when the mouse hovers
+            over a control.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.ListBoxItem">
+            <summary>
+            Represents a selectable item in a ListBox.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ListBoxItem.IsSelectedProperty">
+            <summary>
+            Identifies the IsSelected dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ListBoxItem.#ctor">
+            <summary>
+            Initializes a new instance of the ListBoxItem class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ListBoxItem.OnApplyTemplate">
+            <summary>
+            Invoked whenever application code or internal processes call
+            ApplyTemplate.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ListBoxItem.OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when the user presses the left mouse button over the ListBoxItem.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBoxItem.OnMouseEnter(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Called when the mouse pointer enters the bounds of this element.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBoxItem.OnMouseLeave(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Called when the mouse pointer leaves the bounds of this element.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBoxItem.OnGotFocus(System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when the control got focus.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBoxItem.OnLostFocus(System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when the control lost focus.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBoxItem.OnIsSelectedChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Implements the IsSelectedProperty PropertyChangedCallback.
+            </summary>
+            <param name="d">The DependencyObject for which the property changed.</param>
+            <param name="e">Provides data for DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ListBoxItem.ChangeVisualState">
+            <summary>
+            Changes the visual state by playing the appropriate Storyboard
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBoxItem.IsSelected">
+            <summary>
+            Gets or sets a value that indicates whether a ListBoxItem is selected.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBoxItem.IsMouseOver">
+            <summary>
+            Gets a value that indicates whether the mouse pointer is located over this element.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBoxItem.Item">
+            <summary>
+            Identifies the ItemsControl item represented by this object (null when this object IS the item)
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBoxItem.ParentListBox">
+            <summary>
+            Identifies the parent ListBox.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBoxItem.ElementRoot">
+            <summary>
+            Identifies the root visual element from the template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBoxItem.ElementFocusVisual">
+            <summary>
+            Identifies the focus visual element from the template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBoxItem.StateNormal">
+            <summary>
+            Identifies the normal state.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBoxItem.StateSelected">
+            <summary>
+            Identifies the selected state (with fallback).
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBoxItem.StateSelectedFocused">
+            <summary>
+            Identifies the selected+focused state (with fallback).
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBoxItem.StateMouseOver">
+            <summary>
+            Identifies the normal+mouse state (with fallback).
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBoxItem.StateMouseOverSelected">
+            <summary>
+            Identifies the selected+mouse state (with fallback).
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBoxItem.StateMouseOverSelectedFocused">
+            <summary>
+            Identifies the selected+mouse+focused state (with fallback).
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ListBoxItem.CurrentState">
+            <summary>
+            Identifies the current state.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.DisplayMemberValueConverter">
+            <summary>
+            IValueConverter that converts any object to its ToString equivalent
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.DisplayMemberValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>A converted value.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.DisplayMemberValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>A converted value.</returns>
+        </member>
+        <member name="T:System.Windows.FontStyleConverter">
+            <summary>
+            Converts instances of the String type to FontStyle instances.
+            </summary>
+        </member>
+        <member name="F:System.Windows.FontStyleConverter.KnownValues">
+            <summary>
+            FontStyle known values.
+            </summary>
+        </member>
+        <member name="M:System.Windows.FontStyleConverter.#ctor">
+            <summary>
+            Initializes a new instance of the FontStyleConverter class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.FontStyleConverter.CanConvertFrom(System.Type)">
+            <summary>
+            Returns a value that indicates whether this converter can convert an
+            object of the given type to an instance of FontStyle.
+            </summary>
+            <param name="sourceType">
+            The type of the source that is being evaluated for conversion.
+            </param>
+            <returns>
+            true if the converter can convert the provided type to an instance
+            of FontStyle; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:System.Windows.FontStyleConverter.ConvertFrom(System.Object)">
+            <summary>
+            Attempts to convert a specified object to an instance of FontStyle.
+            </summary>
+            <param name="value">The object being converted.</param>
+            <returns>
+            The instance of FontStyle created from the converted object.
+            </returns>
+        </member>
+        <member name="M:System.Windows.FontStyleConverter.ConvertFromString(System.String)">
+            <summary>
+            Attempts to convert a specified String to an instance of FontStyle.
+            </summary>
+            <param name="text">
+            The String to be converted into the FontStyle object.
+            </param>
+            <returns>
+            The instance of FontStyle created from the converted text.
+            </returns>
+        </member>
+        <member name="T:System.Windows.DragStartedEventArgs">
+            <summary>
+            Provides information about the DragCompleted event that occurs when a
+            user completes a drag operation with the mouse of a Thumb control.
+            </summary>
+        </member>
+        <member name="M:System.Windows.DragStartedEventArgs.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the DragStartedEventArgs class.
+            </summary>
+            <param name="horizontalOffset">
+            The horizontal offset of the mouse click with respect to the screen
+            coordinates of the Thumb.
+            </param>
+            <param name="verticalOffset">
+            The vertical offset of the mouse click with respect to the screen
+            coordinates of the Thumb.
+            </param>
+        </member>
+        <member name="T:System.Windows.DragStartedEventHandler">
+            <summary>
+            Represents the methods that handle the DragStarted event.
+            </summary>
+            <param name="sender">The current element along the event's route.</param>
+            <param name="e">The event arguments containing additional information about the DragStarted event.</param>
+        </member>
+        <member name="T:System.Windows.Controls.Primitives.ScrollBar">
+            <summary>
+               ScrollBars are the UI widgets that both let a user drive scrolling from the UI
+               and indicate status of scrolled content.
+               These are used inside the ScrollViewer.  
+               Their visibility is determined by the scroller visibility properties on ScrollViewer.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.#ctor">
+            <summary>
+            Constructor to setup the ScrollBar class
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.OnApplyTemplate">
+            <summary>
+            Apply a template to the ScrollBar.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ScrollBar.OrientationProperty">
+            <summary>
+            Identifies the Orientation dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.OnOrientationPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            OrientationProperty property changed handler.
+            </summary>
+            <param name="d">ScrollBar that changed Orientation.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ScrollBar.ViewportSizeProperty">
+            <summary>
+            Identifies the ViewportSize dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ScrollBar.IsEnabledProperty">
+            <summary>
+            Identifies the IsEnabled dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.OnIsEnabledPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            IsEnabledProperty property changed handler.
+            </summary>
+            <param name="d">ScrollBar that changed IsEnabled.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.OnIsEnabledChanged(System.Boolean)">
+            <summary>
+            Called when the IsEnabled property changes.
+            </summary>
+            <param name="isEnabled">New value of the IsEnabled property.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.OnValueChanged(System.Double,System.Double)">
+            <summary>
+            Called when the Value property changes.
+            </summary>
+            <param name="oldValue">Old value of the Value property.</param>
+            <param name="newValue">New value of the Value property.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.OnMaximumChanged(System.Double,System.Double)">
+            <summary>
+            Called when the Maximum property changes
+            </summary>
+            <param name="oldMaximum">Old value of the Maximum property.</param>
+            <param name="newMaximum">New value of the Maximum property.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.OnMinimumChanged(System.Double,System.Double)">
+            <summary>
+            Called when the Minimum property changes
+            </summary>
+            <param name="oldMinimum">Old value of the Minimum property.</param>
+            <param name="newMinimum">New value of the Minimum property.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.OnMouseEnter(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Responds to the MouseEnter event.
+            </summary>
+            <param name="e">The event data for the MouseEnter event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.OnMouseLeave(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Responds to the MouseLeave event.
+            </summary>
+            <param name="e">The event data for the MouseLeave event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Responds to the MouseLeftButtonDown event.
+            </summary>
+            <param name="e">The event data for the MouseLeftButtonDown event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.OnMouseLeftButtonUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Responds to the MouseLeftButtonUp event.
+            </summary>
+            <param name="e">The event data for the MouseLeftButtonUp event.</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.RaiseScrollEvent(System.Windows.Controls.ScrollEventType)">
+            <summary>
+            This raises the Scroll event, passing in the scrollEventType 
+            as a parameter to let the handler know what triggered this event.
+            </summary>
+            <param name="scrollEventType">ScrollEventType</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.UpdateVisualState">
+            <summary>
+            Update the current visual state of the ScrollBar.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.ChangeVisualState(System.Windows.Media.Animation.Storyboard)">
+            <summary>
+            Change the visual state of the thumb.
+            </summary>
+            <param name="state">Next visual state of the thumb.</param>
+            <remarks>
+            This method should not be called by controls to force a change to
+            the current visual state.  UpdateVisualState is preferred because
+            it properly handles suspension of state changes.
+            </remarks>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.OnThumbDragDelta(System.Windows.DragEventArgs)">
+            <summary>
+            Whenever the thumb gets dragged, we handle the event through
+            this function to update the current value depending upon the 
+            thumb drag delta.
+            </summary>
+            <param name="e">DragEventArgs</param>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.OnOrientationChanged">
+            <summary>
+            This code will run whenever Orientation changes, to change the template
+            being used to display this control.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.UpdateTrackLayout(System.Double)">
+            <summary>
+            This method will take the current min, max, and value to
+            calculate and layout the current control measurements.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.GetTrackLength">
+            <summary>
+            Based on the size of the Large Increase/Decrease RepeatButtons
+            and on the Thumb, we will calculate the size of the track area
+            of the ScrollBar
+            </summary>
+            <returns>The length of the track</returns>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.ConvertViewportSizeToDisplayUnits(System.Double)">
+            <summary>
+            Based on the ViewportSize, the Track's length, and the 
+            Minimum and Maximum values, we will calculate the length
+            of the thumb.
+            </summary>
+            <returns>Double value representing display unit length</returns>
+        </member>
+        <member name="M:System.Windows.Controls.Primitives.ScrollBar.UpdateThumbSize(System.Double)">
+            <summary>
+            This will resize the Thumb, based on calculations with the ViewportSize,
+            the Track's length, and the Minimum and Maximum values.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ScrollBar._currentState">
+            <summary>
+            Current state of the control
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.Primitives.ScrollBar._dragValue">
+            <summary>
+            Accumulates drag offsets in case the mouse drags off the end of the track.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.Orientation">
+            <summary>
+            Gets whether the ScrollBar has an orientation of vertical or horizontal.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ViewportSize">
+            <summary>
+            ViewportSize is the amount of the scrolled extent currently visible.  
+            For most scrolled content, this value will be bound to one of ScrollViewer's 
+            ViewportSize properties. This property is in logical scrolling units.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.IsEnabled">
+            <summary>
+            Gets or sets a value that indicates whether this element is enabled
+            in the user interface (UI).
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.Primitives.ScrollBar.Scroll">
+            <summary>
+            Event that gets fired when the ScrollBar's value is changed
+            through the Thumb, RepeatButtons, or Keyboard interaction
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ElementRoot">
+            <summary>
+            Root of the ScrollBar template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ElementHorizontalTemplate">
+            <summary>
+            Horizontal template root
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ElementHorizontalLargeIncrease">
+            <summary>
+            Large increase repeat button
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ElementHorizontalLargeDecrease">
+            <summary>
+            Large decrease repeat button
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ElementHorizontalSmallIncrease">
+            <summary>
+            Small increase repeat button
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ElementHorizontalSmallDecrease">
+            <summary>
+            Small decrease repeat button
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ElementHorizontalThumb">
+            <summary>
+            Thumb for dragging track
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ElementVerticalTemplate">
+            <summary>
+            Vertical template root
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ElementVerticalLargeIncrease">
+            <summary>
+            Large increase repeat button
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ElementVerticalLargeDecrease">
+            <summary>
+            Large decrease repeat button
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ElementVerticalSmallIncrease">
+            <summary>
+            Small increase repeat button
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ElementVerticalSmallDecrease">
+            <summary>
+            Small decrease repeat button
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.ElementVerticalThumb">
+            <summary>
+            Thumb for dragging track
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.StateNormal">
+            <summary>
+            Transition into the Normal state in the ScrollBar template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.StateMouseOver">
+            <summary>
+            Transition into the MouseOver state in the ScrollBar template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.StateDisabled">
+            <summary>
+            Transition into the Disabled state in the ScrollBar template.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Primitives.ScrollBar.IsMouseOver">
+            <summary>
+            Whether the mouse is currently over the control
+            </summary>
+        </member>
+        <member name="T:System.Windows.NullableBoolConverter">
+            <summary>
+            Converts a String type to a nullable boolean type.
+            </summary>
+        </member>
+        <member name="M:System.Windows.NullableBoolConverter.#ctor">
+            <summary>
+            Initializes a new instance of the NullableBoolConverter class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.NullableBoolConverter.CanConvertFrom(System.Type)">
+            <summary>
+            Returns whether this converter can convert an object of the given
+            type to the type of this converter.
+            </summary>
+            <param name="sourceType">
+            A type that represents the type that you want to convert from.
+            </param>
+            <returns>
+            true if sourceType is a String type or a Boolean? type that can be
+            assigned from sourceType; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:System.Windows.NullableBoolConverter.ConvertFrom(System.Object)">
+            <summary>
+            Converts the specified object to a bool?.
+            </summary>
+            <param name="value">Object to convert into a bool?.</param>
+            <returns>A bool? that represents the converted text.</returns>
+        </member>
+        <member name="M:System.Windows.NullableBoolConverter.ConvertFromString(System.String)">
+            <summary>
+            Converts the specified text to a nullable boolean.
+            </summary>
+            <param name="text">
+            The text representation of the nullable boolean to convert.
+            </param>
+            <returns>
+            A nullable boolean that represents the converted text.
+            </returns>
+        </member>
+        <member name="T:System.Windows.Controls.ScrollEventArgs">
+            <summary>
+            Provides data for a Scroll event that occurs when the Thumb of a ScrollBar moves.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollEventArgs.#ctor(System.Windows.Controls.ScrollEventType,System.Double)">
+            <summary>
+            Initializes an instance of the ScrollEventArgs class by using the specified ScrollEventType enumeration value and the new location of the Thumb control in the ScrollBar.
+            </summary>
+            <param name="scrollEventType">A ScrollEventType enumeration value that describes the type of Thumb movement that caused the event.</param>
+            <param name="newValue">The value that corresponds to the new location of the Thumb in the ScrollBar.</param>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollEventArgs.NewValue">
+            <summary>
+            Gets a value that represents the new location of the Thumb in the ScrollBar.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollEventArgs.ScrollEventType">
+            <summary>
+            Gets the ScrollEventType enumeration value that describes the change in the Thumb position that caused this event.
+            </summary>
+        </member>
+        <member name="T:System.Windows.RoutedPropertyChangedEventHandler`1">
+            <summary>
+            Represents methods that handle various routed events that track property
+            value changes.
+            </summary>
+            <typeparam name="T">
+            The type of the dependency property that has changed.
+            </typeparam>
+            <param name="sender">
+            The object where the event handler is attached.
+            </param>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="T:System.Windows.Controls.ToolTip">
+            <summary>
+            A control to display information when the user hovers over an owner control
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ToolTip.HorizontalOffsetProperty">
+            <summary>
+            Identifies the HorizontalOffset dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ToolTip.IsOpenProperty">
+            <summary>
+            Identifies the IsOpen dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ToolTip.VerticalOffsetProperty">
+            <summary>
+            Identifies the VerticalOffset dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ToolTip.NormalState">
+            <summary>
+            This storyboard runs when the ToolTip closes.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ToolTip.RootElement">
+            <summary>
+            Part for the ToolTip.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ToolTip.VisibleState">
+            <summary>
+            This storyboard runs when the ToolTip opens.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ToolTip.#ctor">
+            <summary>
+            Creates a default ToolTip element
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ToolTip.OnApplyTemplate">
+            <summary>
+            Apply a template to the ToolTip, invoked from ApplyTemplate
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ToolTip.HorizontalOffset">
+            <summary>
+            Determines a horizontal offset in pixels from the left side of 
+            the mouse bounding rectangle to the left side of the ToolTip.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ToolTip.IsOpen">
+            <summary>
+            Gets a value that determines whether tooltip is displayed or not.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ToolTip.VerticalOffset">
+            <summary>
+            Determines a vertical offset in pixels from the bottom of the 
+            mouse bounding rectangle to the top of the ToolTip.
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.ToolTip.Closed">
+            <summary>
+            Occurs when a ToolTip is closed and is no longer visible.
+            </summary>
+        </member>
+        <member name="E:System.Windows.Controls.ToolTip.Opened">
+            <summary>
+            Occurs when a ToolTip becomes visible.
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.ScrollViewer">
+            <summary>
+            Represents a scrollable area that can contain other visible elements.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollViewer.HorizontalScrollBarVisibilityProperty">
+            <summary>
+            Identifies the HorizontalScrollBarVisibility dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollViewer.VerticalScrollBarVisibilityProperty">
+            <summary>
+            Identifies the VerticalScrollBarVisibility dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollViewer.HorizontalOffsetProperty">
+            <summary>
+            Identifies the HorizontalOffset dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollViewer.ViewportWidthProperty">
+            <summary>
+            Identifies the ViewportWidth dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollViewer.ScrollableWidthProperty">
+            <summary>
+            Identifies the ScrollableWidth dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollViewer.ComputedHorizontalScrollBarVisibilityProperty">
+            <summary>
+            Identifies the ComputedHorizontalScrollBarVisibility dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollViewer.VerticalOffsetProperty">
+            <summary>
+            Identifies the VerticalOffset dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollViewer.ViewportHeightProperty">
+            <summary>
+            Identifies the ViewportHeight dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollViewer.ScrollableHeightProperty">
+            <summary>
+            Identifies the ScrollableHeight dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollViewer.ComputedVerticalScrollBarVisibilityProperty">
+            <summary>
+            Identifies the ComputedVerticalScrollBarVisibility dependency property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.ScrollViewer._readOnlyDependencyPropertyChangesAllowed">
+            <summary>
+            Tracks whether changes to read-only DependencyProperties are allowed
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.GetHorizontalScrollBarVisibility(System.Windows.DependencyObject)">
+            <summary>
+            Gets the value of the HorizontalScrollBarVisibility dependency property from a given element.
+            </summary>
+            <param name="element">The element from which the property value is read.</param>
+            <returns>The value of the HorizontalScrollBarVisibility dependency property.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.SetHorizontalScrollBarVisibility(System.Windows.DependencyObject,System.Windows.Controls.ScrollBarVisibility)">
+            <summary>
+            Sets the value of the HorizontalScrollBarVisibility dependency property to a given element.
+            </summary>
+            <param name="element">The element on which to set the property value.</param>
+            <param name="horizontalScrollBarVisibility">The property value to set.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.GetVerticalScrollBarVisibility(System.Windows.DependencyObject)">
+            <summary>
+            Gets the value of the VerticalScrollBarVisibility dependency property from a given element.
+            </summary>
+            <param name="element">The element from which the property value is read.</param>
+            <returns>The value of the VerticalScrollBarVisibility  dependency property.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.SetVerticalScrollBarVisibility(System.Windows.DependencyObject,System.Windows.Controls.ScrollBarVisibility)">
+            <summary>
+            Sets the value of the VerticalScrollBarVisibility dependency property to a given element.
+            </summary>
+            <param name="element">The element on which to set the property value.</param>
+            <param name="verticalScrollBarVisibility">The property value to set.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.#ctor">
+            <summary>
+            Initializes a new instance of the ScrollViewer class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.OnApplyTemplate">
+            <summary>
+            Invoked whenever application code or internal processes call
+            ApplyTemplate.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.MeasureOverride(System.Windows.Size)">
+            <summary>
+            Called to remeasure a control.
+            </summary>
+            <param name="availableSize">Measurement constraints, a control cannot return a size larger than the constraint.</param>
+            <returns>The size of the control.</returns>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.HandleScroll(System.Windows.Controls.Orientation,System.Windows.Controls.ScrollEventArgs)">
+            <summary>
+            Handles the ScrollBar.Scroll event and updates the UI.
+            </summary>
+            <param name="orientation">Orientation of the ScrollBar.</param>
+            <param name="e">A ScrollEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.OnKeyDown(System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Responds to the KeyDown event.
+            </summary>
+            <param name="e">Provides data for KeyEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Called when the user presses the left mouse button over the ListBoxItem.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.ScrollInDirection(System.Windows.Input.Key)">
+            <summary>
+            Scrolls the view in the specified direction.
+            </summary>
+            <param name="key">Key corresponding to the direction.</param>
+            <remarks>Similar to WPF's corresponding ScrollViewer method.</remarks>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.ScrollToHorizontalOffset(System.Double)">
+            <summary>
+            Scrolls the content within the ScrollViewer to the specified horizontal offset position.
+            </summary>
+            <param name="offset">The position that the content scrolls to.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.ScrollToVerticalOffset(System.Double)">
+            <summary>
+            Scrolls the content within the ScrollViewer to the specified vertical offset position.
+            </summary>
+            <param name="offset">The position that the content scrolls to.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.OnScrollBarVisibilityChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Called when the HorizontalScrollBarVisibility/VerticalScrollBarVisibility property has changed.
+            </summary>
+            <param name="d">The DependencyObject for which the property changed.</param>
+            <param name="e">Provides data for DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.ScrollViewer.OnReadOnlyDependencyPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Implements a generic PropertyChangedCallback for read-only properties.
+            </summary>
+            <param name="d">The DependencyObject for which the property changed.</param>
+            <param name="e">Provides data for DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.HorizontalScrollBarVisibility">
+            <summary>
+            Gets or sets a value that indicates whether a horizontal ScrollBar should be displayed.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.VerticalScrollBarVisibility">
+            <summary>
+            Gets or sets a value that indicates whether a vertical ScrollBar should be displayed.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.HorizontalOffset">
+            <summary>
+            Gets the value of the horizontal offset of the content.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.ViewportWidth">
+            <summary>
+            Gets the value of the viewport width of the content.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.ScrollableWidth">
+            <summary>
+            Gets the value of the scrollable width of the content.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.ComputedHorizontalScrollBarVisibility">
+            <summary>
+            Gets a value that indicates whether the horizontal ScrollBar is visible.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.VerticalOffset">
+            <summary>
+            Gets the value of the vertical offset of the content.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.ViewportHeight">
+            <summary>
+            Gets the value of the viewport height of the content.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.ScrollableHeight">
+            <summary>
+            Gets the value of the scrollable height of the content.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.ComputedVerticalScrollBarVisibility">
+            <summary>
+            Gets a value that indicates whether the vertical ScrollBar is visible.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.TemplatedParentHandlesScrolling">
+            <summary>
+            Indicates whether the parent handles scrolling itself.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.ElementScrollContentPresenter">
+            <summary>
+            Reference to the ScrollContentPresenter child.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.ElementHorizontalScrollBar">
+            <summary>
+            Reference to the horizontal ScrollBar child.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.ScrollViewer.ElementVerticalScrollBar">
+            <summary>
+            Reference to the vertical ScrollBar child.
+            </summary>
+        </member>
+        <member name="T:System.UriTypeConverter">
+            <summary>
+            Converts a String type to a Uri type.
+            </summary>
+        </member>
+        <member name="M:System.UriTypeConverter.#ctor">
+            <summary>
+            Initializes a new instance of the UriTypeConverter class. 
+            </summary>
+        </member>
+        <member name="M:System.UriTypeConverter.CanConvertFrom(System.Type)">
+            <summary>
+            Returns whether this converter can convert an object of the given
+            type to the type of this converter.
+            </summary>
+            <param name="sourceType">
+            A type that represents the type that you want to convert from.
+            </param>
+            <returns>
+            true if sourceType is a String type or a Uri type that can be
+            assigned from sourceType; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:System.UriTypeConverter.ConvertFrom(System.Object)">
+            <summary>
+            Converts the specified object to a Uri.
+            </summary>
+            <param name="value">Object to convert into a Uri.</param>
+            <returns>A Uri that represents the converted text.</returns>
+        </member>
+        <member name="M:System.UriTypeConverter.ConvertFromString(System.String)">
+            <summary>
+            Converts the specified text to a Uri.
+            </summary>
+            <param name="text">
+            The text representation of the Uri to convert.
+            </param>
+            <returns>A Uri that represents the converted text.</returns>
+        </member>
+        <member name="T:System.Windows.FontWeightConverter">
+            <summary>
+            Converts instances of the String type to FontWeight instances.
+            </summary>
+        </member>
+        <member name="F:System.Windows.FontWeightConverter.KnownValues">
+            <summary>
+            FontWeight known values.
+            </summary>
+        </member>
+        <member name="M:System.Windows.FontWeightConverter.#ctor">
+            <summary>
+            Initializes a new instance of the FontWeightConverter class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.FontWeightConverter.CanConvertFrom(System.Type)">
+            <summary>
+            Returns a value that indicates whether this converter can convert an
+            object of the given type to an instance of FontWeight.
+            </summary>
+            <param name="sourceType">
+            The type of the source that is being evaluated for conversion.
+            </param>
+            <returns>
+            true if the converter can convert the provided type to an instance
+            of FontWeight; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:System.Windows.FontWeightConverter.ConvertFrom(System.Object)">
+            <summary>
+            Attempts to convert a specified object to an instance of FontWeight.
+            </summary>
+            <param name="value">The object being converted.</param>
+            <returns>
+            The instance of FontWeight created from the converted object.
+            </returns>
+        </member>
+        <member name="M:System.Windows.FontWeightConverter.ConvertFromString(System.String)">
+            <summary>
+            Attempts to convert a specified String to an instance of FontWeight.
+            </summary>
+            <param name="text">
+            The String to be converted into the FontWeight object.
+            </param>
+            <returns>
+            The instance of FontWeight created from the converted text.
+            </returns>
+        </member>
+        <member name="T:System.Windows.Media.FontFamilyConverter">
+            <summary>
+            Converts instances of the String type to FontFamily instances.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Media.FontFamilyConverter.#ctor">
+            <summary>
+            Initializes a new instance of the FontFamilyConverter class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Media.FontFamilyConverter.CanConvertFrom(System.Type)">
+            <summary>
+            Returns a value that indicates whether this converter can convert an
+            object of the given type to an instance of FontFamily.
+            </summary>
+            <param name="sourceType">
+            The type of the source that is being evaluated for conversion.
+            </param>
+            <returns>
+            true if the converter can convert the provided type to an instance
+            of FontFamily; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:System.Windows.Media.FontFamilyConverter.ConvertFrom(System.Object)">
+            <summary>
+            Attempts to convert a specified object to an instance of FontFamily.
+            </summary>
+            <param name="value">The object being converted.</param>
+            <returns>
+            The instance of FontFamily created from the converted object.
+            </returns>
+        </member>
+        <member name="M:System.Windows.Media.FontFamilyConverter.ConvertFromString(System.String)">
+            <summary>
+            Attempts to convert a specified String to an instance of FontFamily.
+            </summary>
+            <param name="text">
+            The String to be converted into the FontFamily object.
+            </param>
+            <returns>
+            The instance of FontFamily created from the converted text.
+            </returns>
+        </member>
+        <member name="T:System.Windows.Controls.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.ButtonBase_OnClickModePropertyChanged_InvalidValue">
+            <summary>
+              Looks up a localized string similar to ClickMode must be Release, Press, or Hover..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.Common_Extensions_LoadXamlResource_EmptyResourceName">
+            <summary>
+              Looks up a localized string similar to The name of the resource to load cannot be empty..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.ContentControl_HasContent_Inconsistent">
+            <summary>
+              Looks up a localized string similar to HasContent must correspond with the value of Content..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.ContentPresenter_OnApplyTemplate_WriteOnce">
+            <summary>
+              Looks up a localized string similar to The template can only be applied one time..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.HyperlinkButton_GetAbsoluteUri_NoApplication">
+            <summary>
+              Looks up a localized string similar to Cannot navigate to locations relative to the application when Application.Current has not been set..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.HyperlinkButton_GetAbsoluteUri_PageRelativeUri">
+            <summary>
+              Looks up a localized string similar to Cannot navigate to locations relative to a page..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.HyperlinkButton_Navigate_Failed">
+            <summary>
+              Looks up a localized string similar to Failed to navigate to {0}..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.ListBox_OnIsSelectionActiveChanged_ReadOnly">
+            <summary>
+              Looks up a localized string similar to IsSelectionActive is a read-only DependencyProperty..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.ListBox_OnItemContainerStyleChanged_CanNotSetStyle">
+            <summary>
+              Looks up a localized string similar to FrameworkElement.Style property can be set only one time..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.ListBox_OnSelectedItemsChanged_ReadOnly">
+            <summary>
+              Looks up a localized string similar to SelectedItems is a read-only DependencyProperty..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.ListBox_OnSelectedItemsCollectionChanged_WrongMode">
+            <summary>
+              Looks up a localized string similar to Can only change the SelectedItems collection in multiple selection mode. Use SelectedItem in single selection mode..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.ListBox_OnSelectionModeChanged_OnlySingleSelection">
+            <summary>
+              Looks up a localized string similar to Only SelectionMode.Single is supported..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.RangeBase_InvalidChangeValue">
+            <summary>
+              Looks up a localized string similar to Value cannot be negative, infinite, or NaN..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.RangeBase_InvalidDoubleValue">
+            <summary>
+              Looks up a localized string similar to Value cannot be infinite or NaN..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.RepeatButton_DelayPropertyCannotBeNegative">
+            <summary>
+              Looks up a localized string similar to Delay cannot be a negative value..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.RepeatButton_IntervalMustBePositive">
+            <summary>
+              Looks up a localized string similar to Interval cannot be negative or zero..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.ScrollViewer_OnReadOnlyDependencyPropertyChanged_ReadOnly">
+            <summary>
+              Looks up a localized string similar to Unable to set a read-only DependencyProperty..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.ToggleButton_ToString_FormatString">
+            <summary>
+              Looks up a localized string similar to {0} Content:{1} IsChecked:{2}.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.ToolTip_PerformClipping_Ellipsis">
+            <summary>
+              Looks up a localized string similar to ....
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.ToolTipService_SetTimeoutProperty_InvalidValue">
+            <summary>
+              Looks up a localized string similar to Value must be positive..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.TypeConverters_ConvertFrom_CannotConvert">
+            <summary>
+              Looks up a localized string similar to {0} cannot convert from {1}..
+            </summary>
+        </member>
+        <member name="P:System.Windows.Controls.Resource.TypeConverters_ConvertFromString_CannotConvert">
+            <summary>
+              Looks up a localized string similar to Cannot convert {1} to type {0}..
+            </summary>
+        </member>
+        <member name="T:System.Windows.Controls.RadioButton">
+            <summary>
+            Represents a button that can be selected, but not cleared, by a user.
+            The IsChecked property of a RadioButton can be set by clicking it, but
+            it can only be cleared progammatically.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.RadioButton._groupNameToElements">
+            <summary>
+            Mapping of group names to the elements in those groups.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Controls.RadioButton.GroupNameProperty">
+            <summary>
+            Identifies the GroupName dependency property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RadioButton.OnGroupNamePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            GroupNameProperty property changed handler.
+            </summary>
+            <param name="d">RadioButton that changed its GroupName.</param>
+            <param name="e">DependencyPropertyChangedEventArgs.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RadioButton.#ctor">
+            <summary>
+            Initializes a new instance of the RadioButton class.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RadioButton.OnToggle">
+            <summary>
+            Move the button to its next IsChecked value.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RadioButton.OnChecked(System.Windows.RoutedEventArgs)">
+            <summary>
+            Raise the Checked event.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RadioButton.UpdateRadioButtonGroup">
+            <summary>
+            Update this button's entire group 
+            </summary>
+        </member>
+        <member name="M:System.Windows.Controls.RadioButton.Register(System.String,System.Windows.Controls.RadioButton)">
+            <summary>
+            Regsiter a radio button with a group.
+            </summary>
+            <param name="groupName">Name of the RadioButton's group.</param>
+            <param name="radioButton">RadioButton.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RadioButton.Unregister(System.String,System.Windows.Controls.RadioButton)">
+            <summary>
+            Unregister a radio button with a group.
+            </summary>
+            <param name="groupName">Name of the RadioButton's group.</param>
+            <param name="radioButton">RadioButton.</param>
+        </member>
+        <member name="M:System.Windows.Controls.RadioButton.PurgeExpiredReferences(System.Collections.Generic.List{System.WeakReference},System.Object)">
+            <summary>
+            Purge the list of any dead elements or any elements matching a
+            specific element to remove.
+            </summary>
+            <param name="elements">List of elements to purge.</param>
+            <param name="elementToRemove">
+            Element to purge along with any expired references.
+            </param>
+        </member>
+        <member name="P:System.Windows.Controls.RadioButton.GroupName">
+            <summary>
+            Gets or sets mutually exclusive RadioButton groups.
+            </summary>
+        </member>
+        <member name="T:System.Windows.DragEventHandler">
+            <summary>
+            Represents the methods that handle the Drag event.
+            </summary>
+            <param name="sender">The current element along the event's route.</param>
+            <param name="e">The event arguments containing additional information about the Drag event.</param>
+        </member>
+    </members>
+</doc>
